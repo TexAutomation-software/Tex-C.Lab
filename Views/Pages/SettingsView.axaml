@@ -1,0 +1,54 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:PCRA.ViewModels.Pages"
+    x:Class="PCRA.Views.Pages.SettingsView"
+    x:DataType="vm:SettingsViewModel">
+
+	<ScrollViewer>
+
+		<StackPanel Margin="30"
+					Spacing="20">
+
+			<StackPanel>
+
+				<TextBlock Text="Settings"
+						   FontSize="32"
+						   FontWeight="Bold"
+						   Foreground="White"/>
+
+				<TextBlock Text="Application configuration"
+						   Classes="GeneratorSubtitle"/>
+
+			</StackPanel>
+
+			<Border Classes="GeneratorCard">
+
+				<StackPanel Spacing="15">
+
+					<TextBlock Classes="GeneratorTitle"
+							   Text="Output Folder"/>
+
+					<TextBlock Classes="GeneratorSubtitle"
+							   Text="Generated encrypted files are saved here."/>
+
+					<Grid ColumnDefinitions="*,Auto">
+
+						<TextBox Text="{Binding OutputFolder}"/>
+
+						<Button Grid.Column="1"
+								Margin="10,0,0,0"
+								Content="Browse..."
+								Click="Browse_Click"/>
+
+					</Grid>
+
+				</StackPanel>
+
+			</Border>
+
+		</StackPanel>
+
+	</ScrollViewer>
+
+</UserControl>

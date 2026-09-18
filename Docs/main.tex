@@ -1,0 +1,588 @@
+\documentclass[11pt,a4paper]{article}
+
+% --------------------------------------------------
+% Pacchetti
+% --------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+
+% --------------------------------------------------
+% Impostazioni pagina
+% --------------------------------------------------
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2.5cm,
+    right=2.5cm
+}
+
+\definecolor{companyblue}{HTML}{1F4E79}
+\definecolor{lightblue}{HTML}{EAF2F8}
+\definecolor{warningred}{HTML}{9C0006}
+\definecolor{warningbg}{HTML}{FFC7CE}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=companyblue,
+    urlcolor=companyblue
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+% --------------------------------------------------
+% Intestazione e piè di pagina
+% --------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead{P-Cra}
+\rhead{Manuale utente}
+\cfoot{\thepage}
+
+% --------------------------------------------------
+% Comandi personalizzati
+% --------------------------------------------------
+\newcommand{\software}{\textbf{P-Cra}}
+\newcommand{\button}[1]{\textbf{#1}}
+\newcommand{\filename}[1]{\texttt{#1}}
+
+% --------------------------------------------------
+% Documento
+% --------------------------------------------------
+\begin{document}
+
+% ==================================================
+% Copertina
+% ==================================================
+\begin{titlepage}
+    \centering
+
+    \vspace*{1.5cm}
+
+    % Logo aziendale
+    % Il file deve trovarsi in Docs/imgs/logo.png
+    \includegraphics[width=0.35\textwidth]{imgs/logo.jpg}
+
+    \vspace{1.5cm}
+
+    {\Huge\bfseries P-Cra\par}
+
+    \vspace{0.5cm}
+
+    {\Large Generatore di file per sistemi Power\par}
+
+    \vspace{2cm}
+
+    {\LARGE\bfseries Manuale utente\par}
+
+    \vspace{1cm}
+
+    {\large Versione 1.0\par}
+
+    \vfill
+
+    {\large Tex \par}
+
+\end{titlepage}
+
+% ==================================================
+% Indice
+% ==================================================
+\tableofcontents
+\newpage
+
+% ==================================================
+\section{Introduzione}
+% ==================================================
+
+\software{} è uno strumento software sviluppato per la generazione
+di file crittografati utilizzati dai sistemi Power e dal relativo
+Boot Manager.
+
+Il programma consente di generare i file necessari per:
+
+\begin{itemize}
+    \item Effettuare il login automatico al Boot Manager;
+    \item Modificare la password dell'utente amministratore;
+    \item Reimpostare la password dell'utente amministratore;
+    \item Aggiornare i parametri della scheda;
+    \item Validare un nuovo firmware per la scheda.
+\end{itemize}
+
+I file generati devono essere trasferiti sulla scheda tramite
+un dispositivo USB.
+
+Questo manuale descrive le funzionalità disponibili nell'applicazione
+e le procedure da seguire per utilizzare i file generati con il
+Boot Manager.
+
+% ==================================================
+\section{Requisiti e funzionamento generale}
+% ==================================================
+
+Il Boot Manager gestisce due livelli di accesso:
+
+\begin{itemize}
+    \item \textbf{Guest};
+    \item \textbf{Super Admin}.
+\end{itemize}
+
+Il login automatico e le operazioni relative alla password
+dell'utente amministratore vengono gestiti tramite file generati
+da \software.
+
+Per elaborare questi file è necessario:
+
+\begin{enumerate}
+    \item Copiare il file generato su un dispositivo USB;
+    \item Collegare il dispositivo USB alla scheda;
+    \item Accendere o riavviare la scheda;
+    \item Mantenere premuto il pulsante \texttt{X} durante l'avvio;
+    \item Accedere al \textbf{pre-bootloader};
+    \item Selezionare l'operazione richiesta.
+\end{enumerate}
+
+\subsection{Pre-bootloader}
+
+Il pre-bootloader è l'ambiente di avvio accessibile mantenendo
+premuto il pulsante \texttt{X} durante l'accensione della scheda.
+
+Da questo ambiente è possibile:
+
+\begin{itemize}
+    \item Accedere al menu principale del Boot Manager;
+    \item Caricare i parametri della scheda;
+    \item Caricare un nuovo firmware.
+\end{itemize}
+
+Per processare i file generati è necessario passare per il pre-bootloader.
+Nel caso di login, change e reset, è sufficiente ritornare al menu principale.
+Per invece i parametri e il firmware bisogna invece selezionare le relative voci
+
+% ==================================================
+\section{Interfaccia dell'applicazione}
+% ==================================================
+
+L'applicazione è composta dalle seguenti pagine:
+
+\begin{itemize}
+    \item \textbf{About};
+    \item \textbf{Settings};
+    \item \textbf{Generators}.
+\end{itemize}
+
+% ==================================================
+\subsection{Pagina About}
+% ==================================================
+
+La pagina \textbf{About} contiene le informazioni relative
+all'applicazione, tra cui:
+
+\begin{itemize}
+    \item Nome del software;
+    \item Versione installata;
+    \item Informazioni sulla società produttrice.
+\end{itemize}
+
+% ==================================================
+\subsection{Pagina Settings}
+% ==================================================
+
+La pagina \textbf{Settings} consente di selezionare la directory
+di destinazione dei file generati dall'applicazione.
+
+\subsubsection*{Selezione della directory di output}
+
+Per impostare la directory di destinazione:
+
+\begin{enumerate}
+    \item Aprire la pagina \button{Settings};
+    \item Selezionare la directory desiderata;
+    \item Confermare la selezione.
+\end{enumerate}
+
+Tutti i file generati successivamente verranno salvati nella
+directory configurata.
+
+% ==================================================
+\subsection{Pagina Generators}
+% ==================================================
+
+La pagina \textbf{Generators} contiene i generatori utilizzati
+per preparare i file da utilizzare con il Boot Manager.
+
+I generatori disponibili sono:
+
+\begin{itemize}
+    \item \button{Generate Login};
+    \item \button{Change Password};
+    \item \button{Reset Password};
+    \item \button{Card Parameters};
+    \item \button{Firmware Checksum}.
+\end{itemize}
+
+% ==================================================
+\section{Gestione dei file generati}
+% ==================================================
+
+I file generati da \software{} si dividono in due categorie.
+
+\subsection{File elaborati automaticamente}
+
+I seguenti file vengono elaborati automaticamente dal pre-bootloader
+quando sono presenti sul dispositivo USB:
+
+\begin{itemize}
+    \item File di login;
+    \item File per la modifica della password;
+    \item File per il reset della password.
+\end{itemize}
+
+Per questo motivo, questi file devono essere rimossi dal dispositivo
+USB dopo l'utilizzo, quando non sono più necessari.
+
+\textbf{Attenzione:} mantenere questi file su un dispositivo USB
+collegato alla scheda potrebbe causare l'esecuzione automatica
+dell'operazione associata durante un successivo avvio di pre-bootloader.
+
+\subsection{File caricati manualmente}
+
+I seguenti file vengono selezionati manualmente dall'utente
+direttamente dal pre-bootloader:
+
+\begin{itemize}
+    \item File dei parametri della scheda;
+    \item File del firmware.
+\end{itemize}
+
+Questi file non vengono elaborati automaticamente e possono quindi
+rimanere sul dispositivo USB senza causare l'esecuzione involontaria
+dell'operazione.
+
+% ==================================================
+\section{Generatori}
+% ==================================================
+
+\subsection{Generate Login}
+
+Il generatore \button{Generate Login} crea un file che consente
+di effettuare il login automatico al Boot Manager utilizzando
+le credenziali del Super Admin.
+
+\subsubsection*{Dati richiesti}
+
+\begin{itemize}
+    \item Password attuale del Super Admin.
+\end{itemize}
+
+\subsubsection*{Procedura}
+
+\begin{enumerate}
+    \item Aprire la pagina \button{Generators}.
+    \item Selezionare \button{Generate Login}.
+    \item Inserire la password del Super Admin.
+    \item Avviare la generazione del file.
+    \item Copiare il file generato su un dispositivo USB.
+    \item Collegare il dispositivo USB alla scheda.
+    \item Accendere o riavviare la scheda mantenendo premuto
+    il pulsante \texttt{X}.
+    \item Accedere al pre-bootloader.
+    \item Selezionare l'accesso al \textbf{Main Menu}.
+    \item Lasciare che il Boot Manager elabori il file di login.
+\end{enumerate}
+
+% ==================================================
+\subsection{Change Password}
+
+Il generatore \button{Change Password} crea un file che consente
+di modificare la password del Super Admin.
+
+Per eseguire questa operazione sono necessari sia il file di login
+attuale sia la nuova password.
+
+\subsubsection*{Dati richiesti}
+
+\begin{itemize}
+    \item Nuova password del Super Admin.
+\end{itemize}
+
+\subsubsection*{Procedura}
+
+\begin{enumerate}
+    \item Aprire la pagina \button{Generators}.
+    \item Selezionare \button{Change Password}.
+    \item Selezionare il file di login attuale.
+    \item Inserire la nuova password.
+    \item Avviare la generazione del file.
+    \item Copiare il file generato su un dispositivo USB.
+    \item Copiare ANCHE il file di login corrente.
+    \item Collegare il dispositivo USB alla scheda.
+    \item Accendere o riavviare la scheda mantenendo premuto
+    il pulsante \texttt{X}.
+    \item Accedere al pre-bootloader.
+    \item Selezionare il \textbf{Main Menu}.
+    \item Lasciare che il Boot Manager elabori il file generato.
+\end{enumerate}
+
+Dopo l'utilizzo, rimuovere dal dispositivo USB sia il file di login
+sia il file per la modifica della password. SE si vuole continuare ad usare un file di login
+allora bisogna rigenerarlo con la nuova password appena impostata
+
+% ==================================================
+\subsection{Reset Password}
+
+Il generatore \button{Reset Password} crea un file temporaneo
+per reimpostare la password del Super Admin.
+
+Il file di reset è sufficiente da solo: non è necessario aggiungere
+un file di login o un file per la modifica della password.
+
+\subsubsection*{Dati richiesti}
+
+\begin{itemize}
+    \item Indirizzo MAC della scheda;
+    \item Data e ora di scadenza della validità del file.
+\end{itemize}
+
+L'indirizzo MAC deve essere inserito nel formato previsto
+dall'applicazione, ad esempio:
+
+\begin{itemize}
+    \item \texttt{00:11:22:33:44:55};
+    \item \texttt{00-11-22-33-44-55}.
+    \item \texttt{001122334455}
+\end{itemize}
+
+La scadenza deve essere impostata nel futuro. Il file contiene
+un timestamp Unix utilizzato dal Boot Manager per verificarne
+la validità.
+
+\subsubsection*{Procedura}
+
+\begin{enumerate}
+    \item Aprire la pagina \button{Generators}.
+    \item Selezionare \button{Reset Password}.
+    \item Inserire l'indirizzo MAC corretto della scheda.
+    \item Impostare una data e un'ora di scadenza future.
+    \item Avviare la generazione del file.
+    \item Copiare il file generato su un dispositivo USB.
+    \item Collegare il dispositivo USB alla scheda.
+    \item Accendere o riavviare la scheda mantenendo premuto
+    il pulsante \texttt{X}.
+    \item Accedere al pre-bootloader.
+    \item Selezionare il \textbf{Main Menu}.
+    \item Lasciare che il Boot Manager elabori il file di reset.
+\end{enumerate}
+
+Il file non può essere utilizzato dopo la scadenza impostata
+e deve essere rimosso dal dispositivo USB dopo l'utilizzo.
+
+% ==================================================
+\subsection{Card Parameters}
+% ==================================================
+
+Il generatore \button{Card Parameters} prepara il file dei parametri
+della scheda per il caricamento tramite il pre-bootloader.
+
+I parametri devono essere prima scaricati dal Boot Manager. Il file
+ottenuto, denominato \filename{POWER.CRD}, può essere modificato
+come file di testo.
+
+Dopo la modifica, il file deve essere elaborato da \software{}.
+Il programma genera il file crittografato:
+
+\begin{center}
+    \filename{CARDPARS.ENC}
+\end{center}
+
+\subsubsection*{Procedura}
+
+\begin{enumerate}
+    \item Scaricare i parametri della scheda dal Boot Manager.
+    \item Aprire il file \filename{POWER.CRD} con un editor di testo.
+    \item Modificare i parametri necessari.
+    \item Salvare il file modificato.
+    \item Aprire la pagina \button{Generators}.
+    \item Selezionare \button{Card Parameters}.
+    \item Selezionare il file \filename{POWER.CRD}.
+    \item Avviare la generazione del file.
+    \item Copiare \filename{CARDPARS.ENC} su un dispositivo USB.
+    \item Collegare il dispositivo USB alla scheda.
+    \item Accendere o riavviare la scheda mantenendo premuto
+    il pulsante \texttt{X}.
+    \item Dal pre-bootloader selezionare \button{Upload Card Parameters}.
+    \item Selezionare o confermare il file \filename{CARDPARS.ENC}.
+    \item Attendere il completamento dell'operazione.
+\end{enumerate}
+
+Il file \filename{CARDPARS.ENC} viene selezionato manualmente
+dal pre-bootloader e non viene elaborato automaticamente. Se gradito dunque,
+può essere lasciato sul dispositivo USB.
+
+% ==================================================
+\subsection{Firmware Checksum}
+% ==================================================
+
+Il generatore \button{Firmware Checksum} rende valido un nuovo firmware
+per il caricamento sulla scheda generandone una checksum che viene richiesta dalla scheda.
+
+Il firmware deve dunque essere prima elaborato da \software{} per poter
+essere poi caricato dal Boot Manager.
+
+Il programma genera il file crittografato:
+
+\begin{center}
+    \filename{CHECKSUM.ENC}
+\end{center}
+
+\subsubsection*{Dati richiesti}
+
+\begin{itemize}
+    \item File binario del firmware.
+\end{itemize}
+
+\subsubsection*{Procedura}
+
+\begin{enumerate}
+    \item Aprire la pagina \button{Generators}.
+    \item Selezionare \button{Firmware Checksum}.
+    \item Selezionare il file binario del firmware.
+    \item Avviare la generazione del file.
+    \item Copiare \filename{CHECKSUM.ENC} su un dispositivo USB (assieme al firmware stesso)
+    \item Collegare il dispositivo USB alla scheda.
+    \item Accendere o riavviare la scheda mantenendo premuto
+    il pulsante \texttt{X}.
+    \item Dal pre-bootloader selezionare \button{Upload Firmware}.
+    \item Attendere il completamento dell'aggiornamento.
+\end{enumerate}
+
+Il file \filename{CHECKSUM.ENC} viene selezionato manualmente
+dal pre-bootloader e non viene elaborato automaticamente.
+
+% ==================================================
+\section{Riepilogo dei generatori}
+% ==================================================
+
+\renewcommand{\arraystretch}{1.4}
+
+\begin{longtable}{p{3.2cm} p{4.2cm} p{5.2cm}}
+\toprule
+\textbf{Generatore} &
+\textbf{Input} &
+\textbf{Risultato e utilizzo} \\
+\midrule
+\endhead
+
+\button{Generate Login} &
+Password del Super Admin &
+File di login automatico da utilizzare dal Main Menu. \\
+
+\button{Change Password} &
+File di login attuale e nuova password &
+File per modificare la password del Super Admin dal Main Menu. \\
+
+\button{Reset Password} &
+Indirizzo MAC e scadenza &
+File temporaneo per reimpostare la password dal Main Menu. \\
+
+\button{Card Parameters} &
+File \filename{POWER.CRD} modificato &
+Genera \filename{CARDPARS.ENC}, da utilizzare con
+\button{Upload Card Parameters}. \\
+
+\button{Firmware Checksum} &
+File binario del firmware &
+Genera \filename{CHECKSUM.ENC}, da utilizzare con
+\button{Upload Firmware}. \\
+
+\bottomrule
+\end{longtable}
+
+% ==================================================
+\section{Avvertenze}
+% ==================================================
+
+\begin{itemize}
+    \item Verificare sempre che il dispositivo USB contenga il file
+    corretto prima di collegarlo alla scheda.
+    
+    \item Rimuovere i file di modifica password e reset
+    dopo il loro utilizzo, poiché possono essere elaborati
+    automaticamente dal pre-boot manager.
+    
+    \item Dopo un cambio password, in caso si voglia usare il di login automatico,
+    ricordarsi di ri-generarlo, usando questa volta la password nuova appena impostata.
+
+    \item Verificare attentamente l'indirizzo MAC prima di generare
+    un file di reset.
+    
+    \item Assicurarsi che la data e l'ora di scadenza del file di
+    reset siano future.
+    
+    \item Non modificare manualmente i file crittografati generati
+    dall'applicazione.
+    
+    \item Non interrompere l'alimentazione della scheda durante
+    l'aggiornamento dei parametri o del firmware.
+    
+    \item Utilizzare esclusivamente firmware compatibili con il
+    modello della scheda.
+\end{itemize}
+
+% ==================================================
+\section{Risoluzione dei problemi}
+% ==================================================
+
+\subsection{Il file non viene elaborato}
+
+Verificare i seguenti elementi:
+
+\begin{itemize}
+    \item il file si trova nella directory corretta del dispositivo USB;
+    \item il nome del file non è stato modificato;
+    \item il dispositivo USB è stato collegato prima dell'avvio;
+    \item il pulsante \texttt{X} è stato mantenuto premuto
+    durante l'accensione;
+    \item è stata selezionata la voce corretta nel Boot Manager;
+    \item il file non è scaduto;
+    \item il file è stato generato per la scheda corretta.
+\end{itemize}
+
+\subsection{Il file di reset non è valido}
+
+Controllare che:
+
+\begin{itemize}
+    \item l'indirizzo MAC inserito corrisponda alla scheda;
+    \item il formato dell'indirizzo MAC sia corretto;
+    \item la data e l'ora della scheda siano corrette;
+    \item il file non abbia superato la propria scadenza.
+\end{itemize}
+
+\subsection{Il caricamento del firmware non riesce}
+
+Verificare che:
+
+\begin{itemize}
+    \item il firmware selezionato sia compatibile con la scheda;
+    \item il file sia stato elaborato tramite
+    \button{Firmware Checksum};
+    \item sia stato utilizzato il file \filename{CHECKSUM.ENC};
+    \item l'operazione sia stata avviata dalla voce
+    \button{Upload Firmware}.
+\end{itemize}
+
+\end{document}

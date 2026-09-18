@@ -1,0 +1,102 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:PCRA.ViewModels"
+    x:Class="PCRA.Views.MainWindow"
+    x:DataType="vm:MainViewModel"
+    Width="1400"
+    Height="900"
+    Title="PCRA"
+    Background="#09111F">
+
+	<Design.DataContext>
+		<vm:MainViewModel />
+	</Design.DataContext>
+	
+	<Grid RowDefinitions="Auto,*">
+
+		<!-- ===================================== -->
+		<!-- TOP BAR                               -->
+		<!-- ===================================== -->
+
+		<Border Grid.Row="0"
+                Background="#10192D"
+                BorderBrush="#233250"
+                BorderThickness="0,0,0,1">
+
+			<Grid Margin="12"
+                  ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto">
+
+				<!-- LOGO -->
+
+				<!-- Replace with:
+                     <Image Source="/Assets/logo.png"
+                            Width="42"
+                            Height="42"/>
+                -->
+
+				<Image Source="/Assets/tex-logo.jpg"
+					   Width="42"
+					   Height="42"/>
+
+				<!-- COMPANY NAME -->
+
+				<StackPanel Grid.Column="1"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center">
+
+					<TextBlock Text="Tex Controller"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Foreground="White"/>
+
+					<TextBlock Text="TEX"
+                               FontSize="11"
+                               Foreground="#8094BB"/>
+
+				</StackPanel>
+
+				<!-- MENU -->
+
+				<StackPanel Grid.Column="3"
+							Orientation="Horizontal"
+							Spacing="8"
+							VerticalAlignment="Center">
+
+
+					<Button Classes="TopNav"
+                            Content="Generators"
+                            Command="{Binding OpenGeneratorsCommand}" />
+
+					<Button Classes="TopNav"
+                            Content="Settings"
+                            Command="{Binding OpenSettingsCommand}" />
+
+					<Button Classes="TopNav"
+                            Content="About"
+                            Command="{Binding OpenAboutCommand}" />
+
+				</StackPanel>
+
+			</Grid>
+
+		</Border>
+
+		<!-- ===================================== -->
+		<!-- PAGE HOST                             -->
+		<!-- ===================================== -->
+
+		<Border Grid.Row="1"
+                Margin="20"
+                Background="#0F172A"
+                CornerRadius="16">
+
+			<ContentControl
+                Content="{Binding CurrentPage}" />
+
+		</Border>
+
+	</Grid>
+
+</Window>
+

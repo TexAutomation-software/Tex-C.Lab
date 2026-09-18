@@ -1,0 +1,171 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:PCRA.ViewModels.Pages"
+    x:Class="PCRA.Views.Pages.AboutView"
+    x:DataType="vm:AboutViewModel">
+
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+		<StackPanel
+			Margin="40"
+			HorizontalAlignment="Center"
+			Width="620"
+			Spacing="20">
+
+			<!-- Header -->
+			<StackPanel
+				HorizontalAlignment="Center"
+				Spacing="6">
+
+				<TextBlock
+					Text="About"
+					FontSize="28"
+					FontWeight="SemiBold"
+					Foreground="White"
+					HorizontalAlignment="Center"/>
+
+				<TextBlock
+					Text="Learn more about PCRA"
+					Classes="GeneratorSubtitle"
+					HorizontalAlignment="Center"/>
+
+			</StackPanel>
+
+			<!-- Main Card -->
+			<Border
+				Classes="GeneratorCard"
+				Padding="35">
+
+				<StackPanel Spacing="22">
+
+					<!-- Application Identity -->
+					<StackPanel
+						HorizontalAlignment="Center"
+						Spacing="12">
+
+						<Border
+							Width="88"
+							Height="88"
+							CornerRadius="12"
+							Background="#1AFFFFFF"
+							HorizontalAlignment="Center">
+
+							<Image
+								Source="/Assets/tex-logo.jpg"
+								Width="72"
+								Height="72"
+								Stretch="Uniform"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"/>
+						</Border>
+
+						<StackPanel
+							HorizontalAlignment="Center"
+							Spacing="4">
+
+							<TextBlock
+								Text="PCRA"
+								FontSize="34"
+								FontWeight="Bold"
+								Foreground="White"
+								HorizontalAlignment="Center"/>
+
+							<TextBlock
+								Text="Encryption File Generation Utility"
+								Classes="GeneratorSubtitle"
+								HorizontalAlignment="Center"/>
+
+						</StackPanel>
+
+					</StackPanel>
+
+					<Separator/>
+
+					<!-- Application Information -->
+					<StackPanel Spacing="14">
+
+						<TextBlock
+							Text="Application Information"
+							FontSize="17"
+							FontWeight="SemiBold"
+							Foreground="White"/>
+
+						<Grid
+							ColumnDefinitions="150,*"
+							RowDefinitions="Auto,Auto,Auto"
+							RowSpacing="12">
+
+							<TextBlock
+								Text="Version"
+								FontWeight="SemiBold"
+								Opacity="0.7"/>
+
+							<TextBlock
+								Grid.Column="1"
+								Text="1.0.0"
+								HorizontalAlignment="Right"/>
+
+							<TextBlock
+								Grid.Row="1"
+								Text="Platform"
+								FontWeight="SemiBold"
+								Opacity="0.7"/>
+
+							<TextBlock
+								Grid.Row="1"
+								Grid.Column="1"
+								Text="Avalonia UI"
+								HorizontalAlignment="Right"/>
+
+							<TextBlock
+								Grid.Row="2"
+								Text="Developer"
+								FontWeight="SemiBold"
+								Opacity="0.7"/>
+
+							<TextBlock
+								Grid.Row="2"
+								Grid.Column="1"
+								Text="TEX"
+								HorizontalAlignment="Right"/>
+
+						</Grid>
+
+					</StackPanel>
+
+					<Separator/>
+
+					<!-- Description -->
+					<StackPanel Spacing="8">
+
+						<TextBlock
+							Text="PCRA"
+							FontSize="17"
+							FontWeight="SemiBold"
+							Foreground="White"/>
+
+						<TextBlock
+							Text="A modern desktop utility for generating encryption files with a clean and straightforward user interface."
+							TextWrapping="Wrap"
+							LineHeight="21"
+							Opacity="0.75"/>
+
+					</StackPanel>
+
+				</StackPanel>
+
+			</Border>
+
+			<!-- Footer -->
+			<TextBlock
+				Text="© 2026 TEX. All rights reserved."
+				Classes="GeneratorSubtitle"
+				HorizontalAlignment="Center"
+				Opacity="0.6"/>
+
+		</StackPanel>
+
+	</ScrollViewer>
+
+</UserControl>

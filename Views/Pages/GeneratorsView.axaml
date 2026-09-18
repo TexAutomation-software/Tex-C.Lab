@@ -1,0 +1,234 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:vm="using:PCRA.ViewModels.Pages"
+    x:Class="PCRA.Views.Pages.GeneratorsView"
+	x:DataType="vm:GeneratorsViewModel">
+
+	<Grid RowDefinitions="Auto,*">
+
+		<!-- Header -->
+
+		<Grid RowDefinitions="Auto,*">
+
+			<Border Classes="GeneratorCard"
+					Margin="30,25,30,10">
+
+				<StackPanel>
+
+					<TextBlock Text="Generators"
+							   FontSize="32"
+							   FontWeight="Bold"
+							   Foreground="White"/>
+
+					<TextBlock Text="Create encrypted controller files"
+							   Margin="0,5,0,0"
+							   Classes="GeneratorSubtitle"/>
+
+				</StackPanel>
+
+			</Border>
+
+		</Grid>
+
+		<!-- Content -->
+
+		<ScrollViewer Grid.Row="1">
+
+			<Grid Margin="30"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                  ColumnSpacing="20"
+                  RowSpacing="20">
+
+				<!-- LOGIN -->
+
+				<Border Grid.Row="0"
+                        Classes="GeneratorCard">
+
+					<StackPanel Spacing="12">
+
+						<TextBlock Classes="GeneratorTitle"
+                                   Text="LOGIN.ENC"/>
+
+						<TextBlock Classes="GeneratorDescription"
+                                   Text="Generate login file"/>
+
+						<TextBox Watermark="Password"
+								 Text="{Binding LoginPassword}"/>
+
+						<Button Content="Generate LOGIN"
+								Command="{Binding GenerateLoginCommand}"/>
+
+					</StackPanel>
+
+				</Border>
+
+				<!-- CHANGE PASSWORD -->
+
+				<Border Grid.Row="1"
+                        Classes="GeneratorCard">
+
+					<StackPanel Spacing="12">
+
+						<TextBlock Classes="GeneratorTitle"
+                                   Text="CHANGEPWD.ENC"/>
+
+						<TextBlock Classes="GeneratorDescription"
+                                   Text="Generate password change file"/>
+
+						<TextBox Watermark="New password"
+								 Text="{Binding ChangePassword}"/>
+
+						<Button Content="Generate CHANGEPWD"
+								Command="{Binding GenerateChangePasswordCommand}"/>
+
+					</StackPanel>
+
+				</Border>
+
+				<!-- RESET -->
+
+				<Border Grid.Row="2"
+						Classes="GeneratorCard">
+
+					<StackPanel Spacing="12">
+
+						<TextBlock Classes="GeneratorTitle"
+								   Text="RESET.ENC"/>
+
+						<TextBlock Classes="GeneratorSubtitle"
+								   Text="Generate reset password file"/>
+
+						<Grid RowDefinitions="Auto,Auto,Auto"
+							  RowSpacing="12">
+
+							<!-- Row 1: MAC address -->
+							<TextBox Grid.Row="0"
+									 Watermark="00:11:22:33:44:55"
+									 Text="{Binding MacAddress}"/>
+
+							<!-- Row 2: Date/time picker on the left, quick buttons on the right -->
+							<Grid Grid.Row="1"
+								  ColumnDefinitions="*,Auto"
+								  ColumnSpacing="12">
+
+								<!-- Left side: expiration date and time -->
+								<Grid Grid.Column="0"
+									  ColumnDefinitions="*,*"
+									  ColumnSpacing="12">
+
+									<DatePicker Grid.Column="0"
+												SelectedDate="{Binding ResetDate}"/>
+
+									<TimePicker Grid.Column="1"
+												SelectedTime="{Binding ResetTime}"/>
+
+								</Grid>
+
+								<!-- Right side: quick expiration buttons -->
+								<Grid Grid.Column="1"
+									  ColumnDefinitions="Auto,Auto,Auto"
+									  ColumnSpacing="8">
+
+									<Button Grid.Column="0"
+											Content="10 minutes"
+											Command="{Binding SetResetTenMinutesCommand}"/>
+
+									<Button Grid.Column="1"
+											Content="1 hour"
+											Command="{Binding SetResetOneHourCommand}"/>
+
+									<Button Grid.Column="2"
+											Content="1 day"
+											Command="{Binding SetResetOneDayCommand}"/>
+
+								</Grid>
+
+							</Grid>
+
+							<!-- Row 3: Generate button -->
+							<Button Grid.Row="2"
+									Classes="Primary"
+									Content="Generate RESET"
+									Command="{Binding GenerateResetCommand}"/>
+
+						</Grid>
+
+					</StackPanel>
+
+				</Border>
+
+
+				<!-- CARDPARS -->
+
+				<Border Grid.Row="3"
+                        Classes="GeneratorCard">
+
+					<StackPanel Spacing="12">
+
+						<TextBlock Classes="GeneratorTitle"
+                                   Text="CARDPARS.ENC"/>
+
+						<TextBlock Classes="GeneratorDescription"
+                                   Text="Encrypt CardPars file"/>
+
+						<Grid ColumnDefinitions="*,Auto">
+
+							<TextBox Name="CardParsFileBox"
+									 Text="{Binding CardParsFile}"
+									 Watermark="Select .CRD file"/>
+
+							<Button Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    Content="Browse"
+                                    Click="BrowseCardPars_Click"/>
+
+						</Grid>
+
+						<Button Content="Generate CARDPARS"
+								Command="{Binding GenerateCardParsCommand}"/>
+
+					</StackPanel>
+
+				</Border>
+
+				<!-- CHECKSUM -->
+
+				<Border Grid.Row="4"
+                        Classes="GeneratorCard">
+
+					<StackPanel Spacing="12">
+
+						<TextBlock Classes="GeneratorTitle"
+                                   Text="CHECKSUM.ENC"/>
+
+						<TextBlock Classes="GeneratorDescription"
+                                   Text="Generate checksum file"/>
+
+						<Grid ColumnDefinitions="*,Auto">
+
+							<TextBox Name="ChecksumFileBox"
+									 Text="{Binding ChecksumFile}"
+									 Watermark="Select BIN file"/>
+
+							<Button Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    Content="Browse"
+                                    Click="BrowseChecksum_Click"/>
+
+						</Grid>
+
+						<Button Content="Generate CHECKSUM"
+								Command="{Binding GenerateChecksumCommand}"/>
+
+					</StackPanel>
+
+				</Border>
+
+			</Grid>
+
+		</ScrollViewer>
+
+	</Grid>
+
+</UserControl>
