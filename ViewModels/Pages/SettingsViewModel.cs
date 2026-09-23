@@ -20,7 +20,7 @@ public partial class SettingsViewModel : ViewModelBase
             {
                 _settings.OutputFolder = value;
 
-                // Save settings here later
+                _settings.Save();
 
                 OnPropertyChanged();
             }

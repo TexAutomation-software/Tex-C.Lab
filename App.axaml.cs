@@ -1,4 +1,5 @@
 using Avalonia;
+using System.Threading.Tasks;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using PCRA.ViewModels;
@@ -13,14 +14,23 @@ public partial class App : Application
         AvaloniaXamlLoader.Load(this);
     }
 
-    public override void OnFrameworkInitializationCompleted()
+
+    public override async void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            var splash = new SplashView();
+            splash.Show();
+
+            await Task.Delay(2000);
+
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel(),
+                DataContext = new MainViewModel()
             };
+
+            desktop.MainWindow.Show();
+            splash.Close();
         }
 
         base.OnFrameworkInitializationCompleted();
