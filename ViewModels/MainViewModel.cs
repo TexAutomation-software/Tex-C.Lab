@@ -19,6 +19,7 @@ public partial class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         _settings = new AppSettingsService();
+        _settings.Load();
 
         _generatorsPage = new GeneratorsViewModel(_settings);
         _settingsPage = new SettingsViewModel(_settings);

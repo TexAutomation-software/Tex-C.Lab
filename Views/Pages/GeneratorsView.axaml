@@ -53,8 +53,10 @@
 						<TextBlock Classes="GeneratorDescription"
                                    Text="Generate login file"/>
 
-						<TextBox Watermark="Password"
-								 Text="{Binding LoginPassword}"/>
+						<TextBox Text="{Binding LoginPassword}"
+								PasswordChar="*"
+								PlaceholderText="Password"/>
+
 
 						<Button Content="Generate LOGIN"
 								Command="{Binding GenerateLoginCommand}"/>
@@ -77,7 +79,9 @@
                                    Text="Generate password change file"/>
 
 						<TextBox Watermark="New password"
-								 Text="{Binding ChangePassword}"/>
+								Text="{Binding ChangePassword}"
+								PasswordChar="*"
+								PlaceholderText="Password"/>
 
 						<Button Content="Generate CHANGEPWD"
 								Command="{Binding GenerateChangePasswordCommand}"/>

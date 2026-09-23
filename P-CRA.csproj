@@ -19,7 +19,7 @@
   <ItemGroup>
 	  <PackageReference Include="System.Drawing.Common" Version="10.0.12" />
 	  <Reference Include="TexControllers">
-		  <HintPath>C:\Users\pcornacchia\Documents\Visual Studio 2022\Projects\Tex-C.Lab\Dependencies\TexControllers.dll</HintPath>
+		  <HintPath>libs/TexControllers.dll</HintPath>
 	  </Reference>
     <PackageReference Include="Avalonia" Version="12.1.2" />
     <PackageReference Include="Avalonia.Desktop" Version="12.1.2" />
