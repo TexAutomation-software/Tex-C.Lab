@@ -48,10 +48,10 @@
 					<StackPanel Spacing="12">
 
 						<TextBlock Classes="GeneratorTitle"
-                                   Text="LOGIN.ENC"/>
+                                   Text="Generate login file"/>
 
 						<TextBlock Classes="GeneratorDescription"
-                                   Text="Generate login file"/>
+                                   Text="login.enc"/>
 
 						<TextBox Text="{Binding LoginPassword}"
 								PasswordChar="*"
@@ -73,10 +73,10 @@
 					<StackPanel Spacing="12">
 
 						<TextBlock Classes="GeneratorTitle"
-                                   Text="CHANGEPWD.ENC"/>
+                                   Text="Generate password change file"/>
 
 						<TextBlock Classes="GeneratorDescription"
-                                   Text="Generate password change file"/>
+                                   Text="changePwd.enc"/>
 
 						<TextBox Watermark="New password"
 								Text="{Binding ChangePassword}"
@@ -98,10 +98,10 @@
 					<StackPanel Spacing="12">
 
 						<TextBlock Classes="GeneratorTitle"
-								   Text="RESET.ENC"/>
+								   Text="Generate reset password file"/>
 
 						<TextBlock Classes="GeneratorSubtitle"
-								   Text="Generate reset password file"/>
+								   Text="reset.enc"/>
 
 						<Grid RowDefinitions="Auto,Auto,Auto"
 							  RowSpacing="12">
@@ -171,10 +171,10 @@
 					<StackPanel Spacing="12">
 
 						<TextBlock Classes="GeneratorTitle"
-                                   Text="CARDPARS.ENC"/>
+                                   Text="Encrypt CardPars file"/>
 
 						<TextBlock Classes="GeneratorDescription"
-                                   Text="Encrypt CardPars file"/>
+                                   Text="cardPars.enc"/>
 
 						<Grid ColumnDefinitions="*,Auto">
 
@@ -204,10 +204,10 @@
 					<StackPanel Spacing="12">
 
 						<TextBlock Classes="GeneratorTitle"
-                                   Text="CHECKSUM.ENC"/>
+                                   Text="Generate checksum file"/>
 
 						<TextBlock Classes="GeneratorDescription"
-                                   Text="Generate checksum file"/>
+                                   Text="checsum.enc"/>
 
 						<Grid ColumnDefinitions="*,Auto">
 
