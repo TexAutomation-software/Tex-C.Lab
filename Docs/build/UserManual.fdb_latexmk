@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1790174620.82136 "/home/rmingozzi/repos/Tex-C.Lab/Docs/main.tex" "build/main.pdf" "main" 1790174623.42545 0
+["pdflatex"] 1790232891.67685 "/home/rmingozzi/repos/Tex-C.Lab/Docs/UserManual.tex" "build/UserManual.pdf" "UserManual" 1790232894.5134 0
   "/etc/texmf/web2c/texmf.cnf" 1789569051.77361 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/rmingozzi/repos/Tex-C.Lab/Docs/main.tex" 1790174620.46801 18278 665644fc935b72b4cccc0984c0ab51d6 ""
+  "/home/rmingozzi/repos/Tex-C.Lab/Docs/UserManual.tex" 1790232888.81118 18278 665644fc935b72b4cccc0984c0ab51d6 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -94,14 +94,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1789569100 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1789569129 3640292 91b06d0e35ebcf2fcab8c1327740952e ""
-  "build/main.aux" 1790174623.10518 3139 bda0205a279899c2bbd113df4ecda018 "pdflatex"
-  "build/main.out" 1790174623.12196 3527 0ba952e0fe839ee1d6bfbb404b6883c7 "pdflatex"
-  "build/main.toc" 1790174623.13582 1886 d1fea902f94b637df35acfaa640e039d "pdflatex"
+  "build/UserManual.aux" 1790232894.0925 3139 bda0205a279899c2bbd113df4ecda018 "pdflatex"
+  "build/UserManual.out" 1790232894.12438 3527 0ba952e0fe839ee1d6bfbb404b6883c7 "pdflatex"
+  "build/UserManual.toc" 1790232894.14815 1886 d1fea902f94b637df35acfaa640e039d "pdflatex"
   "imgs/logo.jpg" 1790000948.51989 13769 2e0711967d183107887d733ff9db99ca ""
   (generated)
-  "build/main.aux"
-  "build/main.log"
-  "build/main.out"
-  "build/main.pdf"
-  "build/main.toc"
+  "build/UserManual.aux"
+  "build/UserManual.log"
+  "build/UserManual.out"
+  "build/UserManual.pdf"
+  "build/UserManual.toc"
   (rewritten before read)

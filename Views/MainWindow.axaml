@@ -73,6 +73,10 @@
                             Command="{Binding OpenSettingsCommand}" />
 
 					<Button Classes="TopNav"
+							Content="Manual"
+							Command="{Binding OpenManualCommand}" />
+
+					<Button Classes="TopNav"
                             Content="About"
                             Command="{Binding OpenAboutCommand}" />
 

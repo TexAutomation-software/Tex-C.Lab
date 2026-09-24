@@ -1,7 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using PCRA.Services;
 using PCRA.ViewModels.Pages;
+using System.IO;
+using System;
 
 namespace PCRA.ViewModels;
 
@@ -44,5 +47,16 @@ public partial class MainViewModel : ViewModelBase
     private void OpenAbout()
     {
         CurrentPage = _aboutPage;
+    }
+
+    [RelayCommand]
+    private void OpenManual()
+    {
+        var pdfPath = Path.Combine(AppContext.BaseDirectory,"Docs","build","UserManual.pdf");
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = pdfPath,
+            UseShellExecute = true
+        });
     }
 }
