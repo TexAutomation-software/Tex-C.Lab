@@ -4,7 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
 	<LangVersion>preview</LangVersion>
-	  <AssemblyName>PCRA</AssemblyName>
+	  <AssemblyName>Tex-C.Lab</AssemblyName>
 	  <RootNamespace>PCRA</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
 	 <ApplicationIcon>Assets\cra-logo.ico</ApplicationIcon>
