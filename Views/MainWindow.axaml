@@ -6,7 +6,7 @@
     x:DataType="vm:MainViewModel"
     Width="1400"
     Height="900"
-    Title="PCRA"
+    Title="Tex C.Lab"
     Background="#09111F">
 
 	<Design.DataContext>
@@ -35,7 +35,7 @@
                             Height="42"/>
                 -->
 
-				<Image Source="/Assets/tex-logo.jpg"
+				<Image Source="/Assets/cra-logo.png"
 					   Width="42"
 					   Height="42"/>
 
@@ -45,12 +45,12 @@
                             Margin="12,0,0,0"
                             VerticalAlignment="Center">
 
-					<TextBlock Text="Tex Controller"
+					<TextBlock Text="Release 1.0"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="White"/>
 
-					<TextBlock Text="TEX"
+					<TextBlock Text="Build 1"
                                FontSize="11"
                                Foreground="#8094BB"/>
 

@@ -139,11 +139,11 @@ OUTPUT build/UserManual.pdf
 INPUT build/UserManual.out
 INPUT build/UserManual.out
 OUTPUT build/UserManual.out
-INPUT ./imgs/logo.jpg
-INPUT ./imgs/logo.jpg
-INPUT ./imgs/logo.jpg
-INPUT ./imgs/logo.jpg
-INPUT ./imgs/logo.jpg
+INPUT ./imgs/cra-logo.png
+INPUT ./imgs/cra-logo.png
+INPUT ./imgs/cra-logo.png
+INPUT ./imgs/cra-logo.png
+INPUT ./imgs/cra-logo.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm2488.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx2488.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm

@@ -7,7 +7,7 @@
 	  <AssemblyName>PCRA</AssemblyName>
 	  <RootNamespace>PCRA</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-	 <ApplicationIcon>Assets\tex-logo.ico</ApplicationIcon>
+	 <ApplicationIcon>Assets\cra-logo.ico</ApplicationIcon>
 	 <Title>Tex C.lab</Title>
 	 <Product>$(AssemblyName)</Product>
   </PropertyGroup>

@@ -48,14 +48,14 @@
 \pagestyle{fancy}
 \fancyhf{}
 
-\lhead{P-Cra}
+\lhead{Tex C. Lab}
 \rhead{Manuale utente}
 \cfoot{\thepage}
 
 % --------------------------------------------------
 % Comandi personalizzati
 % --------------------------------------------------
-\newcommand{\software}{\textbf{P-Cra}}
+\newcommand{\software}{\textbf{Tex C. Lab}}
 \newcommand{\button}[1]{\textbf{#1}}
 \newcommand{\filename}[1]{\texttt{#1}}
 
@@ -74,15 +74,15 @@
 
     % Logo aziendale
     % Il file deve trovarsi in Docs/imgs/logo.png
-    \includegraphics[width=0.35\textwidth]{imgs/logo.jpg}
+    \includegraphics[width=0.35\textwidth]{imgs/cra-logo.png}
 
     \vspace{1.5cm}
 
-    {\Huge\bfseries P-Cra\par}
+    {\Huge\bfseries Tex C. Lab\par}
 
     \vspace{0.5cm}
 
-    {\Large Generatore di file per sistemi Power\par}
+    {\Large Utility per gestione di file crittati dei sistemi Power\par}
 
     \vspace{2cm}
 
@@ -90,7 +90,7 @@
 
     \vspace{1cm}
 
-    {\large Versione 1.0\par}
+    {\large Versione 1.0.1\par}
 
     \vfill
 
@@ -137,7 +137,7 @@ Il Boot Manager gestisce due livelli di accesso:
 
 \begin{itemize}
     \item \textbf{Guest};
-    \item \textbf{Super Admin}.
+    \item \textbf{Administrator}.
 \end{itemize}
 
 Il login automatico e le operazioni relative alla password
@@ -179,10 +179,21 @@ Per invece i parametri e il firmware bisogna invece selezionare le relative voci
 L'applicazione è composta dalle seguenti pagine:
 
 \begin{itemize}
+    \item \textbf{Manual}
     \item \textbf{About};
     \item \textbf{Settings};
     \item \textbf{Generators}.
 \end{itemize}
+
+% ==================================================
+\subsection{Pagina Manual}
+% ==================================================
+
+La pagina del manuale reindirizza ad un visualizzatore di pdf
+aprendo in automatico il manuale utente.
+
+
+
 
 % ==================================================
 \subsection{Pagina About}
@@ -284,12 +295,12 @@ I generatori sono concepiti come file processati automaticamente dal bootloader,
 
 Il generatore \button{Generate Login} crea un file che consente
 di effettuare il login automatico al Boot Manager utilizzando
-le credenziali del Super Admin. 
+le credenziali del Administrator. 
 
 \subsubsection*{Dati richiesti}
 
 \begin{itemize}
-    \item Password attuale del Super Admin.
+    \item Password attuale del Administrator.
 \end{itemize}
 
 \subsubsection*{Procedura}
@@ -297,7 +308,7 @@ le credenziali del Super Admin.
 \begin{enumerate}
     \item Aprire la pagina \button{Generators}.
     \item Selezionare \button{Generate Login}.
-    \item Inserire la password del Super Admin.
+    \item Inserire la password del Administrator.
     \item Avviare la generazione del file.
     \item Copiare il file generato su un dispositivo USB.
     \item Collegare il dispositivo USB alla scheda.
@@ -312,7 +323,7 @@ le credenziali del Super Admin.
 \subsection{Change Password}
 
 Il generatore \button{Change Password} crea un file che consente
-di modificare la password del Super Admin.
+di modificare la password del Administrator.
 
 Per eseguire questa operazione sono necessari sia il file di login
 attuale sia la nuova password.
@@ -320,7 +331,7 @@ attuale sia la nuova password.
 \subsubsection*{Dati richiesti}
 
 \begin{itemize}
-    \item Nuova password del Super Admin.
+    \item Nuova password del Administrator.
 \end{itemize}
 
 \subsubsection*{Procedura}
@@ -349,7 +360,7 @@ allora bisogna rigenerarlo con la nuova password appena impostata
 \subsection{Reset Password}
 
 Il generatore \button{Reset Password} crea un file temporaneo
-per reimpostare la password del Super Admin.
+per reimpostare la password del Administrator.
 
 Il file di reset è sufficiente da solo: non è necessario aggiungere
 un file di login o un file per la modifica della password.
@@ -491,12 +502,12 @@ dal pre-bootloader e non viene elaborato automaticamente.
 \endhead
 
 \button{Generate Login} &
-Password del Super Admin &
+Password del Administrator &
 File di login automatico da utilizzare dal Main Menu. \\
 
 \button{Change Password} &
 File di login attuale e nuova password &
-File per modificare la password del Super Admin dal Main Menu. \\
+File per modificare la password del Administrator dal Main Menu. \\
 
 \button{Reset Password} &
 Indirizzo MAC e scadenza &

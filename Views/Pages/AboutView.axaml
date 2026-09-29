@@ -52,7 +52,7 @@
 							HorizontalAlignment="Center">
 
 							<Image
-								Source="/Assets/tex-logo.jpg"
+								Source="/Assets/cra-logo.png"
 								Width="72"
 								Height="72"
 								Stretch="Uniform"
@@ -65,7 +65,7 @@
 							Spacing="4">
 
 							<TextBlock
-								Text="PCRA"
+								Text="Tex C. Lab"
 								FontSize="34"
 								FontWeight="Bold"
 								Foreground="White"
@@ -103,7 +103,7 @@
 
 							<TextBlock
 								Grid.Column="1"
-								Text="1.0.0"
+								Text="1.0.1"
 								HorizontalAlignment="Right"/>
 
 							<TextBlock
@@ -115,7 +115,7 @@
 							<TextBlock
 								Grid.Row="1"
 								Grid.Column="1"
-								Text="Avalonia UI"
+								Text="Windows"
 								HorizontalAlignment="Right"/>
 
 							<TextBlock
@@ -140,13 +140,13 @@
 					<StackPanel Spacing="8">
 
 						<TextBlock
-							Text="PCRA"
+							Text="Tex C. Lab"
 							FontSize="17"
 							FontWeight="SemiBold"
 							Foreground="White"/>
 
 						<TextBlock
-							Text="A modern desktop utility for generating encryption files with a clean and straightforward user interface."
+							Text="Utility per la gestione dei file crittati dell' ecosistema Tex."
 							TextWrapping="Wrap"
 							LineHeight="21"
 							Opacity="0.75"/>
