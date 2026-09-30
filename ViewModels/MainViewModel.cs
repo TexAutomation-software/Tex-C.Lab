@@ -28,7 +28,7 @@ public partial class MainViewModel : ViewModelBase
         _settingsPage = new SettingsViewModel(_settings);
         _aboutPage = new AboutViewModel();
 
-        CurrentPage = null;
+        CurrentPage = _aboutPage;
     }
 
     [RelayCommand]
