@@ -32,7 +32,7 @@ ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\rmingozzi\Documents\repos\Tex-C.Lab\Setup\Output
+OutputDir=C:\Users\pcornacchia\Documents\Visual Studio 2022\Projects\Tex-C.Lab\Setup\Output
 OutputBaseFilename=TexCLab-installer
 SetupIconFile=..\Assets\cra-logo.ico
 SolidCompression=yes
