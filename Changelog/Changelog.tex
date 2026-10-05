@@ -1,9 +1,6 @@
-\documentclass[11pt,a4paper]{article}
-
-\newcommand{\DocVersion}{1.0.1}
+﻿\documentclass[11pt,a4paper]{article}
+\newcommand{\DocVersion}{0.1.0}
 \newcommand{\BuildDate}{20261005}
-
-
 % --------------------------------------------------
 % Pacchetti
 % --------------------------------------------------
@@ -47,7 +44,7 @@
 \setlength{\parskip}{0.6em}
 
 % --------------------------------------------------
-% Intestazione e piè di pagina
+% Intestazione e piÃ¨ di pagina
 % --------------------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
@@ -77,8 +74,8 @@
     \vspace*{1.5cm}
 
     % Il file deve trovarsi in Docs/imgs/logo.png.
-    % Poiché questo file si trova in Changelog/Changelog.tex,
-    % il percorso corretto è ../Docs/imgs/cra-logo.png.
+    % PoichÃ© questo file si trova in Changelog/Changelog.tex,
+    % il percorso corretto Ã¨ ../Docs/imgs/cra-logo.png.
     \includegraphics[width=0.35\textwidth]{../Docs/imgs/cra-logo.png}
 
     \vspace{1.5cm}
@@ -118,10 +115,10 @@
 % ==================================================
 \section{Introduzione}
 
-Questo documento contiene l'elenco delle modifiche, delle funzionalità
+Questo documento contiene l'elenco delle modifiche, delle funzionalitÃ 
 aggiunte e degli aggiornamenti relativi a \software{}.
 
-Le modifiche sono riportate in ordine cronologico inverso, dalla più
+Le modifiche sono riportate in ordine cronologico inverso, dalla piÃ¹
 recente alla meno recente.
 
 % ==================================================
@@ -130,14 +127,30 @@ recente alla meno recente.
 \section{Changelog}
 
 % ==================================================
-% Versione 1.0.1
+% Versione 0.1.0
+% ==================================================
+\subsection*{\version{0.1.0} --- 05/10/2026}
+
+\addcontentsline{toc}{subsection}{Versione 0.1.0 --- 05/10/2026}
+
+\begin{itemize}[leftmargin=*]
+    \item Rilascio della versione 0.1.0.
+    \item Pubblicazione della documentazione utente aggiornata.
+    \item Aggiornamento dell'interfaccia grafica dell'applicazione.
+    \item Miglioramento della gestione della directory di output.
+    \item Correzione di problemi minori relativi alla generazione dei file.
+\end{itemize}
+
+
+% ==================================================
+% Versione 0.0.1
 % ==================================================
 \subsection*{\version{1.0.1} --- 01/10/2026}
 
-\addcontentsline{toc}{subsection}{Versione 1.0.1 --- 01/10/2026}
+\addcontentsline{toc}{subsection}{Versione 0.0.1 --- 01/10/2026}
 
 \begin{itemize}[leftmargin=*]
-    \item Rilascio della versione 1.0.1.
+    \item Rilascio della versione 0.0.1.
     \item Pubblicazione della documentazione utente aggiornata.
     \item Aggiornamento dell'interfaccia grafica dell'applicazione.
     \item Miglioramento della gestione della directory di output.
@@ -145,11 +158,11 @@ recente alla meno recente.
 \end{itemize}
 
 % ==================================================
-% Versione 1.0.0
+% Versione 0.0.0
 % ==================================================
 \subsection*{\version{1.0.0} --- 20/09/2026}
 
-\addcontentsline{toc}{subsection}{Versione 1.0.0 --- 20/09/2026}
+\addcontentsline{toc}{subsection}{Versione 0.0.0 --- 20/09/2026}
 
 \begin{itemize}[leftmargin=*]
     \item Aggiunta della pagina \textbf{Generators}.
@@ -190,3 +203,5 @@ Le modifiche future dovranno essere aggiunte all'inizio della sezione
 \textbf{Changelog}, mantenendo l'ordine cronologico inverso.
 
 \end{document}
+
+

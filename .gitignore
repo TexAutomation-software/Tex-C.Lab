@@ -1,5 +1,16 @@
 bin/
 obj/
+
 .vs/
 .vscode/
+
+# Installer output
 Setup/Output/*.exe
+
+# LaTeX artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk

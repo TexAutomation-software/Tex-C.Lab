@@ -1,9 +1,6 @@
-\documentclass[11pt,a4paper]{article}
-
-\newcommand{\DocVersion}{1.0.1}
+﻿\documentclass[11pt,a4paper]{article}
+\newcommand{\DocVersion}{0.1.0}
 \newcommand{\BuildDate}{20261005}
-
-
 % --------------------------------------------------
 % Pacchetti
 % --------------------------------------------------
@@ -47,7 +44,7 @@
 \setlength{\parskip}{0.6em}
 
 % --------------------------------------------------
-% Intestazione e piè di pagina
+% Intestazione e piÃ¨ di pagina
 % --------------------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
@@ -117,7 +114,7 @@
 \section{Introduzione}
 % ==================================================
 
-\software{} è uno strumento software sviluppato per la generazione
+\software{} Ã¨ uno strumento software sviluppato per la generazione
 di file crittografati utilizzati dai sistemi Power e dal relativo
 Boot Manager.
 
@@ -134,7 +131,7 @@ Il programma consente di generare i file necessari per:
 I file generati devono essere trasferiti sulla scheda tramite
 un dispositivo USB.
 
-Questo manuale descrive le funzionalità disponibili nell'applicazione
+Questo manuale descrive le funzionalitÃ  disponibili nell'applicazione
 e le procedure da seguire per utilizzare i file generati con il
 Boot Manager.
 
@@ -153,7 +150,7 @@ Il login automatico e le operazioni relative alla password
 dell'utente amministratore vengono gestiti tramite file generati
 da \software.
 
-Per elaborare questi file è necessario:
+Per elaborare questi file Ã¨ necessario:
 
 \begin{enumerate}
     \item Copiare il file generato su un dispositivo USB;
@@ -166,10 +163,10 @@ Per elaborare questi file è necessario:
 
 \subsection{Pre-bootloader}
 
-Il pre-bootloader è l'ambiente di avvio accessibile mantenendo
+Il pre-bootloader Ã¨ l'ambiente di avvio accessibile mantenendo
 premuto il pulsante \texttt{X} durante l'accensione della scheda.
 
-Da questo ambiente è possibile:
+Da questo ambiente Ã¨ possibile:
 
 \begin{itemize}
     \item Accedere al menu principale del Boot Manager;
@@ -177,15 +174,15 @@ Da questo ambiente è possibile:
     \item Caricare un nuovo firmware.
 \end{itemize}
 
-Per processare i file generati è necessario passare per il pre-bootloader.
-Nel caso di login, change e reset, è sufficiente ritornare al menu principale.
+Per processare i file generati Ã¨ necessario passare per il pre-bootloader.
+Nel caso di login, change e reset, Ã¨ sufficiente ritornare al menu principale.
 Per invece i parametri e il firmware bisogna invece selezionare le relative voci
 
 % ==================================================
 \section{Interfaccia dell'applicazione}
 % ==================================================
 
-L'applicazione è composta dalle seguenti pagine:
+L'applicazione Ã¨ composta dalle seguenti pagine:
 
 \begin{itemize}
     \item \textbf{Manual}
@@ -214,7 +211,7 @@ all'applicazione, tra cui:
 \begin{itemize}
     \item Nome del software;
     \item Versione installata;
-    \item Informazioni sulla società produttrice.
+    \item Informazioni sulla societÃ  produttrice.
 \end{itemize}
 
 % ==================================================
@@ -272,7 +269,7 @@ quando sono presenti sul dispositivo USB:
 \end{itemize}
 
 Per questo motivo, questi file devono essere rimossi dal dispositivo
-USB dopo l'utilizzo, quando non sono più necessari.
+USB dopo l'utilizzo, quando non sono piÃ¹ necessari.
 
 \textbf{Attenzione:} mantenere questi file su un dispositivo USB
 collegato alla scheda potrebbe causare l'esecuzione automatica
@@ -296,7 +293,7 @@ dell'operazione.
 \section{Generatori}
 
 I generatori sono concepiti come file processati automaticamente dal bootloader,
-\textbf{il quale è accessibile tramite la pressione prolungata del pulsante del controller}.
+\textbf{il quale Ã¨ accessibile tramite la pressione prolungata del pulsante del controller}.
 
 % ==================================================
 
@@ -371,14 +368,14 @@ allora bisogna rigenerarlo con la nuova password appena impostata
 Il generatore \button{Reset Password} crea un file temporaneo
 per reimpostare la password del Administrator.
 
-Il file di reset è sufficiente da solo: non è necessario aggiungere
+Il file di reset Ã¨ sufficiente da solo: non Ã¨ necessario aggiungere
 un file di login o un file per la modifica della password.
 
 \subsubsection*{Dati richiesti}
 
 \begin{itemize}
     \item Indirizzo MAC della scheda;
-    \item Data e ora di scadenza della validità del file.
+    \item Data e ora di scadenza della validitÃ  del file.
 \end{itemize}
 
 L'indirizzo MAC deve essere inserito nel formato previsto
@@ -392,7 +389,7 @@ dall'applicazione, ad esempio:
 
 La scadenza deve essere impostata nel futuro. Il file contiene
 un timestamp Unix utilizzato dal Boot Manager per verificarne
-la validità.
+la validitÃ .
 
 \subsubsection*{Procedura}
 
@@ -411,7 +408,7 @@ la validità.
     \item Lasciare che il Boot Manager elabori il file di reset.
 \end{enumerate}
 
-Il file non può essere utilizzato dopo la scadenza impostata
+Il file non puÃ² essere utilizzato dopo la scadenza impostata
 e deve essere rimosso dal dispositivo USB dopo l'utilizzo.
 
 % ==================================================
@@ -422,7 +419,7 @@ Il generatore \button{Card Parameters} prepara il file dei parametri
 della scheda per il caricamento tramite il pre-bootloader.
 
 I parametri devono essere prima scaricati dal Boot Manager. Il file
-ottenuto, denominato \filename{POWER.CRD}, può essere modificato
+ottenuto, denominato \filename{POWER.CRD}, puÃ² essere modificato
 come file di testo.
 
 Dopo la modifica, il file deve essere elaborato da \software{}.
@@ -454,7 +451,7 @@ Il programma genera il file crittografato:
 
 Il file \filename{CARDPARS.ENC} viene selezionato manualmente
 dal pre-bootloader e non viene elaborato automaticamente. Se gradito dunque,
-può essere lasciato sul dispositivo USB.
+puÃ² essere lasciato sul dispositivo USB.
 
 % ==================================================
 \subsection{Firmware Checksum}
@@ -544,7 +541,7 @@ Genera \filename{CHECKSUM.ENC}, da utilizzare con
     corretto prima di collegarlo alla scheda.
     
     \item Rimuovere i file di modifica password e reset
-    dopo il loro utilizzo, poiché possono essere elaborati
+    dopo il loro utilizzo, poichÃ© possono essere elaborati
     automaticamente dal pre-boot manager.
     
     \item Dopo un cambio password, in caso si voglia usare il di login automatico,
@@ -576,16 +573,16 @@ Verificare i seguenti elementi:
 
 \begin{itemize}
     \item il file si trova nella directory corretta del dispositivo USB;
-    \item il nome del file non è stato modificato;
-    \item il dispositivo USB è stato collegato prima dell'avvio;
-    \item il pulsante \texttt{X} è stato mantenuto premuto
+    \item il nome del file non Ã¨ stato modificato;
+    \item il dispositivo USB Ã¨ stato collegato prima dell'avvio;
+    \item il pulsante \texttt{X} Ã¨ stato mantenuto premuto
     durante l'accensione;
-    \item è stata selezionata la voce corretta nel Boot Manager;
-    \item il file non è scaduto;
-    \item il file è stato generato per la scheda corretta.
+    \item Ã¨ stata selezionata la voce corretta nel Boot Manager;
+    \item il file non Ã¨ scaduto;
+    \item il file Ã¨ stato generato per la scheda corretta.
 \end{itemize}
 
-\subsection{Il file di reset non è valido}
+\subsection{Il file di reset non Ã¨ valido}
 
 Controllare che:
 
@@ -610,3 +607,5 @@ Verificare che:
 \end{itemize}
 
 \end{document}
+
+
