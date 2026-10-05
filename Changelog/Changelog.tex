@@ -1,0 +1,192 @@
+\documentclass[11pt,a4paper]{article}
+
+\newcommand{\DocVersion}{1.0.1}
+\newcommand{\BuildDate}{20261005}
+
+
+% --------------------------------------------------
+% Pacchetti
+% --------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+
+% --------------------------------------------------
+% Impostazioni pagina
+% --------------------------------------------------
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2.5cm,
+    right=2.5cm
+}
+
+\definecolor{companyblue}{HTML}{1F4E79}
+\definecolor{lightblue}{HTML}{EAF2F8}
+\definecolor{warningred}{HTML}{9C0006}
+\definecolor{warningbg}{HTML}{FFC7CE}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=companyblue,
+    urlcolor=companyblue
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+% --------------------------------------------------
+% Intestazione e piè di pagina
+% --------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead{Tex C. Lab}
+\rhead{Changelog}
+\cfoot{\thepage}
+
+% --------------------------------------------------
+% Comandi personalizzati
+% --------------------------------------------------
+\newcommand{\software}{\textbf{Tex C. Lab}}
+\newcommand{\version}[1]{\textbf{Versione #1}}
+\newcommand{\changelogdate}[1]{\textbf{#1}}
+
+% --------------------------------------------------
+% Documento
+% --------------------------------------------------
+\begin{document}
+
+% ==================================================
+% Copertina
+% ==================================================
+\begin{titlepage}
+    \centering
+
+    \vspace*{1.5cm}
+
+    % Il file deve trovarsi in Docs/imgs/logo.png.
+    % Poiché questo file si trova in Changelog/Changelog.tex,
+    % il percorso corretto è ../Docs/imgs/cra-logo.png.
+    \includegraphics[width=0.35\textwidth]{../Docs/imgs/cra-logo.png}
+
+    \vspace{1.5cm}
+
+    {\Huge\bfseries Tex C. Lab\par}
+
+    \vspace{0.5cm}
+
+    {\Large Utility per gestione di file crittati dei sistemi Power\par}
+
+    \vspace{2cm}
+
+    {\LARGE\bfseries Changelog\par}
+
+    \vspace{1cm}
+
+    {\large Versione \DocVersion\par}
+
+    \vspace{0.3cm}
+
+    {\large Build date: \BuildDate\par}
+
+
+    \vfill
+
+    {\large Tex\par}
+\end{titlepage}
+
+% ==================================================
+% Indice
+% ==================================================
+\tableofcontents
+\newpage
+
+% ==================================================
+% Introduzione
+% ==================================================
+\section{Introduzione}
+
+Questo documento contiene l'elenco delle modifiche, delle funzionalità
+aggiunte e degli aggiornamenti relativi a \software{}.
+
+Le modifiche sono riportate in ordine cronologico inverso, dalla più
+recente alla meno recente.
+
+% ==================================================
+% Changelog
+% ==================================================
+\section{Changelog}
+
+% ==================================================
+% Versione 1.0.1
+% ==================================================
+\subsection*{\version{1.0.1} --- 01/10/2026}
+
+\addcontentsline{toc}{subsection}{Versione 1.0.1 --- 01/10/2026}
+
+\begin{itemize}[leftmargin=*]
+    \item Rilascio della versione 1.0.1.
+    \item Pubblicazione della documentazione utente aggiornata.
+    \item Aggiornamento dell'interfaccia grafica dell'applicazione.
+    \item Miglioramento della gestione della directory di output.
+    \item Correzione di problemi minori relativi alla generazione dei file.
+\end{itemize}
+
+% ==================================================
+% Versione 1.0.0
+% ==================================================
+\subsection*{\version{1.0.0} --- 20/09/2026}
+
+\addcontentsline{toc}{subsection}{Versione 1.0.0 --- 20/09/2026}
+
+\begin{itemize}[leftmargin=*]
+    \item Aggiunta della pagina \textbf{Generators}.
+    \item Aggiunto il generatore \textbf{Generate Login}.
+    \item Aggiunto il generatore \textbf{Change Password}.
+    \item Aggiunto il generatore \textbf{Reset Password}.
+    \item Aggiunto il generatore \textbf{Card Parameters}.
+    \item Aggiunto il generatore \textbf{Firmware Checksum}.
+    \item Aggiunta la pagina \textbf{Settings} per la configurazione
+          della directory di output.
+    \item Aggiunta la pagina \textbf{About}.
+\end{itemize}
+
+% ==================================================
+% Versione iniziale
+% ==================================================
+\subsection*{Versione iniziale --- 01/09/2026}
+
+\addcontentsline{toc}{subsection}{Versione iniziale --- 01/09/2026}
+
+\begin{itemize}[leftmargin=*]
+    \item Creazione del progetto \software{}.
+    \item Implementazione della struttura iniziale dell'applicazione.
+    \item Aggiunta della pagina \textbf{Manual}.
+    \item Configurazione iniziale della navigazione tra le pagine.
+    \item Predisposizione della gestione dei file generati.
+\end{itemize}
+
+% ==================================================
+% Note
+% ==================================================
+\section{Note}
+
+Le date riportate nel presente documento utilizzano il formato
+\texttt{GG/MM/AAAA}.
+
+Le modifiche future dovranno essere aggiunte all'inizio della sezione
+\textbf{Changelog}, mantenendo l'ordine cronologico inverso.
+
+\end{document}

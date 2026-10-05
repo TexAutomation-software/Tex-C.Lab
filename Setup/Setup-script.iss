@@ -3,7 +3,9 @@
 ; Non-commercial use only
 
 #define MyAppName "Tex C. Lab"
-#define MyAppVersion "1.0.1"
+#ifndef MyAppVersion
+  #define MyAppVersion "0.0.1"
+#endif
 #define MyAppPublisher "Tex"
 #define MyAppURL "https://www.texautomation.it/"
 #define MyAppExeName "Tex-C.Lab.exe"
@@ -14,6 +16,8 @@
 AppId={{4892CECE-47AA-48E8-A272-8625EDAD9092}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
+CloseApplications=yes
+RestartApplications=no
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
@@ -32,8 +36,8 @@ ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\rmingozzi\Documents\repos\Tex-C.Lab\Setup\Output
-OutputBaseFilename=TexCLab-installer
+OutputDir=Output
+OutputBaseFilename=TexCLab-installer-{#MyAppVersion}
 SetupIconFile=..\Assets\cra-logo.ico
 SolidCompression=yes
 WizardStyle=modern dynamic

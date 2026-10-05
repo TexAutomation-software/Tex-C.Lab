@@ -45,14 +45,14 @@
                             Margin="12,0,0,0"
                             VerticalAlignment="Center">
 
-					<TextBlock Text="Release 1.0"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="White"/>
+				<TextBlock Text="{Binding ApplicationVersion, StringFormat='Tex C Lab v. {0}'}"
+						FontSize="18"
+						FontWeight="Bold"
+						Foreground="White"/>
 
-					<TextBlock Text="Build 1"
-                               FontSize="11"
-                               Foreground="#8094BB"/>
+				<TextBlock Text="{Binding BuildDate, StringFormat='Build {0}'}"
+						FontSize="11"
+						Foreground="#8094BB"/>
 
 				</StackPanel>
 
@@ -79,6 +79,10 @@
 					<Button Classes="TopNav"
                             Content="About"
                             Command="{Binding OpenAboutCommand}" />
+					
+					<Button Classes="TopNav"
+                            Content="Update"
+                            Command="{Binding UpdateCheckerCommand}" />
 
 				</StackPanel>
 

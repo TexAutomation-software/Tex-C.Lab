@@ -1,0 +1,159 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:PCRA.ViewModels.Popups"
+    x:Class="PCRA.Views.Popups.UpdateDialogView"
+    x:DataType="vm:UpdateDialogViewModel"
+    Width="480"
+    MinHeight="260"
+    CanResize="False"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner"
+    Title="PCRA Update">
+
+    <Border
+        Padding="28"
+        Background="#10192D">
+
+        <Grid
+            RowDefinitions="Auto,Auto,*,Auto"
+            RowSpacing="18">
+
+            <TextBlock
+                Grid.Row="0"
+                Text="Application Update"
+                FontSize="22"
+                FontWeight="Bold"
+                Foreground="White"/>
+
+            <TextBlock
+                Grid.Row="1"
+                Text="{Binding Message}"
+                TextWrapping="Wrap"
+                FontSize="15"
+                Foreground="#D9E2F2"/>
+
+            <StackPanel
+                Grid.Row="2"
+                Spacing="12">
+
+                <!-- Spinner shown while checking or downloading -->
+                <StackPanel
+                    IsVisible="{Binding IsBusy}"
+                    Orientation="Horizontal"
+                    Spacing="12">
+
+                    <ProgressBar
+                        Width="32"
+                        Height="32"
+                        IsIndeterminate="True"/>
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Text="Please wait..."
+                        Foreground="#AFC1DF"/>
+                </StackPanel>
+
+                <!-- Version information -->
+                <StackPanel
+                    IsVisible="{Binding IsUpdateAvailable}"
+                    Spacing="4">
+
+                    <TextBlock
+                        Text="{Binding AvailableVersion,
+                                       StringFormat='Available version: {0}'}"
+                        Foreground="#D9E2F2"/>
+
+                    <TextBlock
+                        Text="{Binding CurrentVersion,
+                                       StringFormat='Current version: {0}'}"
+                        Foreground="#8094BB"/>
+                </StackPanel>
+
+                <!-- Download progress -->
+                <StackPanel
+                    IsVisible="{Binding IsDownloading}"
+                    Spacing="6">
+
+                    <ProgressBar
+                        Minimum="0"
+                        Maximum="1"
+                        Value="{Binding DownloadProgress}"
+                        Height="10"/>
+
+                    <TextBlock
+                        Text="{Binding DownloadProgress,
+                                       StringFormat='{}{0:P0}'}"
+                        Foreground="#AFC1DF"/>
+                </StackPanel>
+
+                <!-- Error -->
+                <TextBlock
+                    IsVisible="{Binding IsError}"
+                    Text="{Binding ErrorMessage}"
+                    TextWrapping="Wrap"
+                    Foreground="#FF8A8A"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="3"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                Spacing="10">
+
+                <!-- Update available confirmation -->
+                <Button
+                    IsVisible="{Binding IsUpdateAvailable}"
+                    Content="No"
+                    Command="{Binding CancelCommand}"
+                    MinWidth="90"/>
+
+                <Button
+                    IsVisible="{Binding IsUpdateAvailable}"
+                    Content="Download"
+                    Command="{Binding DownloadUpdateCommand}"
+                    MinWidth="100"/>
+
+                <!-- Checking or downloading -->
+                <Button
+                    IsVisible="{Binding IsBusy}"
+                    Content="Cancel"
+                    Command="{Binding CancelCommand}"
+                    MinWidth="90"/>
+
+                <!-- End states -->
+                <Button
+                    IsVisible="{Binding IsUpToDate}"
+                    Content="Close"
+                    Command="{Binding CloseCommand}"
+                    MinWidth="90"/>
+
+                <!--
+                    <Button
+                    IsVisible="{Binding IsCompleted}"
+                    Content="Later"
+                    Command="{Binding CloseCommand}"
+                    MinWidth="90"/>
+                -->
+                    
+                <Button
+                    IsVisible="{Binding IsCompleted}"
+                    Content="Install"
+                    Command="{Binding InstallUpdateCommand}"
+                    MinWidth="90"/>
+
+                <Button
+                    IsVisible="{Binding IsCancelled}"
+                    Content="Close"
+                    Command="{Binding CloseCommand}"
+                    MinWidth="90"/>
+
+                <Button
+                    IsVisible="{Binding IsError}"
+                    Content="Close"
+                    Command="{Binding CloseCommand}"
+                    MinWidth="90"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

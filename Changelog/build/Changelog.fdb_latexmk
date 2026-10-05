@@ -1,7 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1791184270.45862 "/home/rmingozzi/repos/Tex-C.Lab/Docs/UserManual.tex" "build/UserManual.pdf" "UserManual" 1791184273.37534 0
+["pdflatex"] 1791184276.93747 "/home/rmingozzi/repos/Tex-C.Lab/Changelog/Changelog.tex" "build/Changelog.pdf" "Changelog" 1791184279.54239 0
+  "../Docs/imgs/cra-logo.png" 1790663815.42746 16971 53cd0abe02413ae33e7a843fd91076d0 ""
   "/etc/texmf/web2c/texmf.cnf" 1789569051.77361 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/rmingozzi/repos/Tex-C.Lab/Docs/UserManual.tex" 1791184270.14663 18739 423c5cb2eaf492fa3121ab69bb40f15c ""
+  "/home/rmingozzi/repos/Tex-C.Lab/Changelog/Changelog.tex" 1791184276.58347 5416 6ba604165e1c73911e306f06ed46eb93 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -94,14 +95,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1789569100 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1789569129 3640292 91b06d0e35ebcf2fcab8c1327740952e ""
-  "build/UserManual.aux" 1791184273.00145 3259 dda9a113e788f8f3b962ecb84283e3b3 "pdflatex"
-  "build/UserManual.out" 1791184273.0209 3653 2f9d6e455c9699e1425151bdc23d6578 "pdflatex"
-  "build/UserManual.toc" 1791184273.03658 1965 8c179b339019ed5fdcc562919dc68752 "pdflatex"
-  "imgs/cra-logo.png" 1790663815.42746 16971 53cd0abe02413ae33e7a843fd91076d0 ""
+  "build/Changelog.aux" 1791184279.22174 966 64d90c9d8c28b4c1c0048f6da41133d9 "pdflatex"
+  "build/Changelog.out" 1791184279.23719 869 2a0f5c3eda1127b9e0b8176ffd6d4d91 "pdflatex"
+  "build/Changelog.toc" 1791184279.25019 478 29119181bd219444138c9ef9d0273555 "pdflatex"
   (generated)
-  "build/UserManual.aux"
-  "build/UserManual.log"
-  "build/UserManual.out"
-  "build/UserManual.pdf"
-  "build/UserManual.toc"
+  "build/Changelog.aux"
+  "build/Changelog.log"
+  "build/Changelog.out"
+  "build/Changelog.pdf"
+  "build/Changelog.toc"
   (rewritten before read)

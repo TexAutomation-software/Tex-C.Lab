@@ -5,167 +5,193 @@
     x:Class="PCRA.Views.Pages.AboutView"
     x:DataType="vm:AboutViewModel">
 
-	<ScrollViewer HorizontalScrollBarVisibility="Disabled">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
 
-		<StackPanel
-			Margin="40"
-			HorizontalAlignment="Center"
-			Width="620"
-			Spacing="20">
+        <StackPanel
+            Margin="40"
+            HorizontalAlignment="Center"
+            Width="620"
+            Spacing="20">
 
-			<!-- Header -->
-			<StackPanel
-				HorizontalAlignment="Center"
-				Spacing="6">
+            <!-- Header -->
+            <StackPanel
+                HorizontalAlignment="Center"
+                Spacing="6">
 
-				<TextBlock
-					Text="About"
-					FontSize="28"
-					FontWeight="SemiBold"
-					Foreground="White"
-					HorizontalAlignment="Center"/>
+                <TextBlock
+                    Text="About"
+                    FontSize="28"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    HorizontalAlignment="Center"/>
 
-				<TextBlock
-					Text="Learn more about PCRA"
-					Classes="GeneratorSubtitle"
-					HorizontalAlignment="Center"/>
+                <TextBlock
+                    Text="Learn more about PCRA"
+                    Classes="GeneratorSubtitle"
+                    HorizontalAlignment="Center"/>
 
-			</StackPanel>
+            </StackPanel>
 
-			<!-- Main Card -->
-			<Border
-				Classes="GeneratorCard"
-				Padding="35">
+            <!-- Main Card -->
+            <Border
+                Classes="GeneratorCard"
+                Padding="35">
 
-				<StackPanel Spacing="22">
+                <StackPanel Spacing="22">
 
-					<!-- Application Identity -->
-					<StackPanel
-						HorizontalAlignment="Center"
-						Spacing="12">
+                    <!-- Application Identity -->
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Spacing="12">
 
-						<Border
-							Width="88"
-							Height="88"
-							CornerRadius="12"
-							Background="#1AFFFFFF"
-							HorizontalAlignment="Center">
+                        <Border
+                            Width="88"
+                            Height="88"
+                            CornerRadius="12"
+                            Background="#1AFFFFFF"
+                            HorizontalAlignment="Center">
 
-							<Image
-								Source="/Assets/cra-logo.png"
-								Width="72"
-								Height="72"
-								Stretch="Uniform"
-								HorizontalAlignment="Center"
-								VerticalAlignment="Center"/>
-						</Border>
+                            <Image
+                                Source="/Assets/cra-logo.png"
+                                Width="72"
+                                Height="72"
+                                Stretch="Uniform"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
 
-						<StackPanel
-							HorizontalAlignment="Center"
-							Spacing="4">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            Spacing="4">
 
-							<TextBlock
-								Text="Tex C. Lab"
-								FontSize="34"
-								FontWeight="Bold"
-								Foreground="White"
-								HorizontalAlignment="Center"/>
+                            <TextBlock
+                                Text="Tex C. Lab"
+                                FontSize="34"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                HorizontalAlignment="Center"/>
 
-							<TextBlock
-								Text="Encryption File Generation Utility"
-								Classes="GeneratorSubtitle"
-								HorizontalAlignment="Center"/>
+                            <TextBlock
+                                Text="Encryption File Generation Utility"
+                                Classes="GeneratorSubtitle"
+                                HorizontalAlignment="Center"/>
 
-						</StackPanel>
+                        </StackPanel>
 
-					</StackPanel>
+                    </StackPanel>
 
-					<Separator/>
+                    <Separator/>
 
-					<!-- Application Information -->
-					<StackPanel Spacing="14">
+                    <!-- Application Information -->
+                    <StackPanel Spacing="14">
 
-						<TextBlock
-							Text="Application Information"
-							FontSize="17"
-							FontWeight="SemiBold"
-							Foreground="White"/>
+                        <TextBlock
+                            Text="Application Information"
+                            FontSize="17"
+                            FontWeight="SemiBold"
+                            Foreground="White"/>
 
-						<Grid
-							ColumnDefinitions="150,*"
-							RowDefinitions="Auto,Auto,Auto"
-							RowSpacing="12">
+                        <Grid
+                            ColumnDefinitions="150,*"
+                            RowDefinitions="Auto,Auto,Auto"
+                            RowSpacing="12">
 
-							<TextBlock
-								Text="Version"
-								FontWeight="SemiBold"
-								Opacity="0.7"/>
+                            <TextBlock
+                                Text="Version"
+                                FontWeight="SemiBold"
+                                Opacity="0.7"/>
 
-							<TextBlock
-								Grid.Column="1"
-								Text="1.0.1"
-								HorizontalAlignment="Right"/>
+                            <TextBlock
+                                Grid.Column="1"
+                                Text="{Binding Version}"
+                                HorizontalAlignment="Right"/>
 
-							<TextBlock
-								Grid.Row="1"
-								Text="Platform"
-								FontWeight="SemiBold"
-								Opacity="0.7"/>
 
-							<TextBlock
-								Grid.Row="1"
-								Grid.Column="1"
-								Text="Windows"
-								HorizontalAlignment="Right"/>
+                            <TextBlock
+                                Grid.Row="1"
+                                Text="Platform"
+                                FontWeight="SemiBold"
+                                Opacity="0.7"/>
 
-							<TextBlock
-								Grid.Row="2"
-								Text="Developer"
-								FontWeight="SemiBold"
-								Opacity="0.7"/>
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="Windows"
+                                HorizontalAlignment="Right"/>
 
-							<TextBlock
-								Grid.Row="2"
-								Grid.Column="1"
-								Text="TEX"
-								HorizontalAlignment="Right"/>
+                            <TextBlock
+                                Grid.Row="2"
+                                Text="Developer"
+                                FontWeight="SemiBold"
+                                Opacity="0.7"/>
 
-						</Grid>
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="TEX"
+                                HorizontalAlignment="Right"/>
 
-					</StackPanel>
+                        </Grid>
 
-					<Separator/>
+                    </StackPanel>
 
-					<!-- Description -->
-					<StackPanel Spacing="8">
+                    <Separator/>
 
-						<TextBlock
-							Text="Tex C. Lab"
-							FontSize="17"
-							FontWeight="SemiBold"
-							Foreground="White"/>
+                    <!-- Description -->
+                    <StackPanel Spacing="8">
 
-						<TextBlock
-							Text="Utility per la gestione dei file crittati dell' ecosistema Tex."
-							TextWrapping="Wrap"
-							LineHeight="21"
-							Opacity="0.75"/>
+                        <TextBlock
+                            Text="Tex C. Lab"
+                            FontSize="17"
+                            FontWeight="SemiBold"
+                            Foreground="White"/>
 
-					</StackPanel>
+                        <TextBlock
+                            Text="Utility per la gestione dei file crittati dell'ecosistema Tex."
+                            TextWrapping="Wrap"
+                            LineHeight="21"
+                            Opacity="0.75"/>
 
-				</StackPanel>
+                    </StackPanel>
 
-			</Border>
+                    <Separator/>
 
-			<!-- Footer -->
-			<TextBlock
-				Text="© 2026 TEX. All rights reserved."
-				Classes="GeneratorSubtitle"
-				HorizontalAlignment="Center"
-				Opacity="0.6"/>
+                    <!-- Documentation -->
+                    <StackPanel Spacing="10">
 
-		</StackPanel>
+                        <TextBlock
+                            Text="Documentation"
+                            FontSize="17"
+                            FontWeight="SemiBold"
+                            Foreground="White"/>
 
-	</ScrollViewer>
+                        <TextBlock
+                            Text="View the latest application changes and releases."
+                            TextWrapping="Wrap"
+                            Opacity="0.75"/>
+
+                        <Button
+                            Content="Open Changelog"
+                            Command="{Binding OpenChangelogCommand}"
+                            HorizontalAlignment="Left"
+                            Padding="18,9"
+                            MinWidth="160"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Footer -->
+            <TextBlock
+                Text="© 2026 TEX. All rights reserved."
+                Classes="GeneratorSubtitle"
+                HorizontalAlignment="Center"
+                Opacity="0.6"/>
+
+        </StackPanel>
+
+    </ScrollViewer>
 
 </UserControl>
