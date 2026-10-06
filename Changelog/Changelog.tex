@@ -1,12 +1,12 @@
 ﻿\documentclass[11pt,a4paper]{article}
-\newcommand{\DocVersion}{0.1.0}
-\newcommand{\BuildDate}{20261005}
+\newcommand{\DocVersion}{1.1.0}
+\newcommand{\BuildDate}{20261006}
 % --------------------------------------------------
-% Pacchetti
+% Packages
 % --------------------------------------------------
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[italian]{babel}
+\usepackage[english]{babel}
 
 \usepackage{geometry}
 \usepackage{xcolor}
@@ -20,7 +20,7 @@
 \usepackage{longtable}
 
 % --------------------------------------------------
-% Impostazioni pagina
+% Page settings
 % --------------------------------------------------
 \geometry{
     top=2.5cm,
@@ -44,7 +44,7 @@
 \setlength{\parskip}{0.6em}
 
 % --------------------------------------------------
-% Intestazione e piÃ¨ di pagina
+% Header and footer
 % --------------------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
@@ -54,28 +54,28 @@
 \cfoot{\thepage}
 
 % --------------------------------------------------
-% Comandi personalizzati
+% Custom commands
 % --------------------------------------------------
 \newcommand{\software}{\textbf{Tex C. Lab}}
-\newcommand{\version}[1]{\textbf{Versione #1}}
+\newcommand{\version}[1]{\textbf{Version #1}}
 \newcommand{\changelogdate}[1]{\textbf{#1}}
 
 % --------------------------------------------------
-% Documento
+% Document
 % --------------------------------------------------
 \begin{document}
 
 % ==================================================
-% Copertina
+% Cover page
 % ==================================================
 \begin{titlepage}
     \centering
 
     \vspace*{1.5cm}
 
-    % Il file deve trovarsi in Docs/imgs/logo.png.
-    % PoichÃ© questo file si trova in Changelog/Changelog.tex,
-    % il percorso corretto Ã¨ ../Docs/imgs/cra-logo.png.
+    % The file must be located in Docs/imgs/logo.png.
+    % Since this file is located in Changelog/Changelog.tex,
+    % the correct path is ../Docs/imgs/cra-logo.png.
     \includegraphics[width=0.35\textwidth]{../Docs/imgs/cra-logo.png}
 
     \vspace{1.5cm}
@@ -84,7 +84,7 @@
 
     \vspace{0.5cm}
 
-    {\Large Utility per gestione di file crittati dei sistemi Power\par}
+    {\Large Utility for managing encrypted files for Power systems\par}
 
     \vspace{2cm}
 
@@ -92,12 +92,11 @@
 
     \vspace{1cm}
 
-    {\large Versione \DocVersion\par}
+    {\large Version \DocVersion\par}
 
     \vspace{0.3cm}
 
     {\large Build date: \BuildDate\par}
-
 
     \vfill
 
@@ -105,21 +104,21 @@
 \end{titlepage}
 
 % ==================================================
-% Indice
+% Table of contents
 % ==================================================
 \tableofcontents
 \newpage
 
 % ==================================================
-% Introduzione
+% Introduction
 % ==================================================
-\section{Introduzione}
+\section{Introduction}
 
-Questo documento contiene l'elenco delle modifiche, delle funzionalitÃ 
-aggiunte e degli aggiornamenti relativi a \software{}.
+This document contains a list of changes, added features, and updates
+related to \software{}.
 
-Le modifiche sono riportate in ordine cronologico inverso, dalla piÃ¹
-recente alla meno recente.
+Changes are listed in reverse chronological order, from the most
+recent to the oldest.
 
 % ==================================================
 % Changelog
@@ -127,81 +126,94 @@ recente alla meno recente.
 \section{Changelog}
 
 % ==================================================
-% Versione 0.1.0
+% Version 1.1.0
+% ==================================================
+\subsection*{\version{1.1.0} --- 06/10/2026}
+
+\addcontentsline{toc}{subsection}{Version 1.1.0 --- 06/10/2026}
+
+\begin{itemize}[leftmargin=*]
+    \item Release of version 1.1.0.
+    \item User manual translated in english
+    \item Changelog translated in english
+\end{itemize}
+
+
+% ==================================================
+% Version 0.1.0
 % ==================================================
 \subsection*{\version{0.1.0} --- 05/10/2026}
 
-\addcontentsline{toc}{subsection}{Versione 0.1.0 --- 05/10/2026}
+\addcontentsline{toc}{subsection}{Version 0.1.0 --- 05/10/2026}
 
 \begin{itemize}[leftmargin=*]
-    \item Rilascio della versione 0.1.0.
-    \item Pubblicazione della documentazione utente aggiornata.
-    \item Aggiornamento dell'interfaccia grafica dell'applicazione.
-    \item Miglioramento della gestione della directory di output.
-    \item Correzione di problemi minori relativi alla generazione dei file.
+    \item Release of version 0.1.0.
+    \item Publication of the updated user documentation.
+    \item Updated the application's graphical user interface.
+    \item Improved output directory management.
+    \item Fixed minor issues related to file generation.
 \end{itemize}
 
 
 % ==================================================
-% Versione 0.0.1
+% Version 0.0.1
 % ==================================================
-\subsection*{\version{1.0.1} --- 01/10/2026}
+\subsection*{\version{0.0.1} --- 01/10/2026}
 
-\addcontentsline{toc}{subsection}{Versione 0.0.1 --- 01/10/2026}
+\addcontentsline{toc}{subsection}{Version 0.0.1 --- 01/10/2026}
 
 \begin{itemize}[leftmargin=*]
-    \item Rilascio della versione 0.0.1.
-    \item Pubblicazione della documentazione utente aggiornata.
-    \item Aggiornamento dell'interfaccia grafica dell'applicazione.
-    \item Miglioramento della gestione della directory di output.
-    \item Correzione di problemi minori relativi alla generazione dei file.
+    \item Release of version 0.0.1.
+    \item Publication of the updated user documentation.
+    \item Updated the application's graphical user interface.
+    \item Improved output directory management.
+    \item Fixed minor issues related to file generation.
 \end{itemize}
 
 % ==================================================
-% Versione 0.0.0
+% Version 0.0.0
 % ==================================================
-\subsection*{\version{1.0.0} --- 20/09/2026}
+\subsection*{\version{0.0.0} --- 20/09/2026}
 
-\addcontentsline{toc}{subsection}{Versione 0.0.0 --- 20/09/2026}
+\addcontentsline{toc}{subsection}{Version 0.0.0 --- 20/09/2026}
 
 \begin{itemize}[leftmargin=*]
-    \item Aggiunta della pagina \textbf{Generators}.
-    \item Aggiunto il generatore \textbf{Generate Login}.
-    \item Aggiunto il generatore \textbf{Change Password}.
-    \item Aggiunto il generatore \textbf{Reset Password}.
-    \item Aggiunto il generatore \textbf{Card Parameters}.
-    \item Aggiunto il generatore \textbf{Firmware Checksum}.
-    \item Aggiunta la pagina \textbf{Settings} per la configurazione
-          della directory di output.
-    \item Aggiunta la pagina \textbf{About}.
+    \item Added the \textbf{Generators} page.
+    \item Added the \textbf{Generate Login} generator.
+    \item Added the \textbf{Change Password} generator.
+    \item Added the \textbf{Reset Password} generator.
+    \item Added the \textbf{Card Parameters} generator.
+    \item Added the \textbf{Firmware Checksum} generator.
+    \item Added the \textbf{Settings} page for configuring
+          the output directory.
+    \item Added the \textbf{About} page.
 \end{itemize}
 
 % ==================================================
-% Versione iniziale
+% Initial version
 % ==================================================
-\subsection*{Versione iniziale --- 01/09/2026}
+\subsection*{Initial version --- 01/09/2026}
 
-\addcontentsline{toc}{subsection}{Versione iniziale --- 01/09/2026}
+\addcontentsline{toc}{subsection}{Initial version --- 01/09/2026}
 
 \begin{itemize}[leftmargin=*]
-    \item Creazione del progetto \software{}.
-    \item Implementazione della struttura iniziale dell'applicazione.
-    \item Aggiunta della pagina \textbf{Manual}.
-    \item Configurazione iniziale della navigazione tra le pagine.
-    \item Predisposizione della gestione dei file generati.
+    \item Created the \software{} project.
+    \item Implemented the initial application structure.
+    \item Added the \textbf{Manual} page.
+    \item Initial configuration of navigation between pages.
+    \item Prepared the management of generated files.
 \end{itemize}
 
 % ==================================================
-% Note
+% Notes
 % ==================================================
-\section{Note}
+\section{Notes}
 
-Le date riportate nel presente documento utilizzano il formato
-\texttt{GG/MM/AAAA}.
+The dates in this document use the
+\texttt{DD/MM/YYYY} format.
 
-Le modifiche future dovranno essere aggiunte all'inizio della sezione
-\textbf{Changelog}, mantenendo l'ordine cronologico inverso.
+Future changes should be added at the beginning of the
+\textbf{Changelog} section, maintaining reverse chronological order.
 
 \end{document}
-
 

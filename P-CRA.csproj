@@ -2,8 +2,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
-    <Version>0.1.0</Version>
-    <BuildDate>20261005</BuildDate>
+    <Version>1.1.0</Version>
+    <BuildDate>20261006</BuildDate>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
     <InformationalVersion>$(Version)</InformationalVersion>
