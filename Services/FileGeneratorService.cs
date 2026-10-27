@@ -27,7 +27,7 @@ namespace PCRA.Services
             using (var rng = RandomNumberGenerator.Create())
                 rng.GetBytes(iv);
 
-            byte[] encrypted = service.AesEncrypt(password, iv);
+            byte[] encrypted = service.AesEncrypt(password, iv); 
 
             string path = BuildOutputPath("LOGIN.ENC");
             using (FileStream fs = File.Create(path)) {
@@ -55,10 +55,8 @@ namespace PCRA.Services
             }
         }
 
-        public void GenerateResetPasswordFile(IController controller, byte[] mac, long utcTime) {
-            if (mac == null || mac.Length == 0 || mac.Length != 6) {
-                return;
-            }
+        public void GenerateResetPasswordFile(IController controller, byte[] mac, long utcTime)
+        {
             ICryptService service = (ICryptService)controller.GetControllerService(typeof(ICryptService));
 
             byte[] iv = new byte[16];
@@ -66,17 +64,25 @@ namespace PCRA.Services
                 rng.GetBytes(iv);
 
             byte[] dati = new byte[32];
+            long magic = 0x7E3A10B3;
 
+            // Magic Number
+            dati[0] = (byte)(magic >> 24);
+            dati[1] = (byte)(magic >> 16);
+            dati[2] = (byte)(magic >> 8);
+            dati[3] = (byte)magic;
+
+            // Mac Address
             for (int i = 0; i < 6; i++)
-                dati[i] = mac[i];
+                dati[i+4] = mac[i];
 
-            dati[6] = (byte)(utcTime >> 24);
-            dati[7] = (byte)(utcTime >> 16);
-            dati[8] = (byte)(utcTime >> 8);
-            dati[9] = (byte)utcTime;
+            // Time
+            dati[10] = (byte)(utcTime >> 24);
+            dati[11] = (byte)(utcTime >> 16);
+            dati[12] = (byte)(utcTime >> 8);
+            dati[13] = (byte)utcTime;
 
             byte[] encrypted = service.AesEncrypt(dati, iv);
-
             string path = BuildOutputPath("RESET.ENC");
             using (FileStream fs = File.Create(path))
             {
@@ -125,6 +131,42 @@ namespace PCRA.Services
             byte[] encrypted = service.AesEncrypt(dati, iv);
             string path = BuildOutputPath("CHECKSUM.ENC");
             using (FileStream fs = File.Create(path)) {
+                fs.Write(iv, 0, iv.Length);
+                fs.Write(encrypted, 0, encrypted.Length);
+            }
+        }
+
+        public void GenerateTempAuthFile(IController controller, byte[] mac, long utcTime)
+        {
+            ICryptService service = (ICryptService)controller.GetControllerService(typeof(ICryptService));
+
+            byte[] iv = new byte[16];
+            using (var rng = RandomNumberGenerator.Create())
+                rng.GetBytes(iv);
+
+            byte[] dati = new byte[32];
+            long magic = 0x91CD77A8;
+
+            // Magic Number
+            dati[0] = (byte)(magic >> 24);
+            dati[1] = (byte)(magic >> 16);
+            dati[2] = (byte)(magic >> 8);
+            dati[3] = (byte)magic;
+
+            // Mac Address
+            for (int i = 0; i < 6; i++)
+                dati[i+4] = mac[i];
+
+            // Time
+            dati[10] = (byte)(utcTime >> 24);
+            dati[11] = (byte)(utcTime >> 16);
+            dati[12] = (byte)(utcTime >> 8);
+            dati[13] = (byte)utcTime;
+
+            byte[] encrypted = service.AesEncrypt(dati, iv);
+            string path = BuildOutputPath("TEMPAUTH.ENC");
+            using (FileStream fs = File.Create(path))
+            {
                 fs.Write(iv, 0, iv.Length);
                 fs.Write(encrypted, 0, encrypted.Length);
             }

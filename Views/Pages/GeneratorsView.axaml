@@ -36,7 +36,7 @@
 		<ScrollViewer Grid.Row="1">
 
 			<Grid Margin="30"
-                  RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
                   ColumnSpacing="20"
                   RowSpacing="20">
 
@@ -109,7 +109,7 @@
 							<!-- Row 1: MAC address -->
 							<TextBox Grid.Row="0"
 									 Watermark="00:11:22:33:44:55"
-									 Text="{Binding MacAddress}"/>
+									 Text="{Binding MacAddressReset}"/>
 
 							<!-- Row 2: Date/time picker on the left, quick buttons on the right -->
 							<Grid Grid.Row="1"
@@ -224,6 +224,78 @@
 
 						<Button Content="Generate CHECKSUM"
 								Command="{Binding GenerateChecksumCommand}"/>
+
+					</StackPanel>
+
+				</Border>
+
+				<!-- TEMPAUTH  -->
+
+				<Border Grid.Row="5"
+						Classes="GeneratorCard">
+
+					<StackPanel Spacing="12">
+
+						<TextBlock Classes="GeneratorTitle"
+								   Text="Generate temporary authorization"/>
+
+						<TextBlock Classes="GeneratorSubtitle"
+								   Text="tempauth.enc"/>
+
+						<Grid RowDefinitions="Auto,Auto,Auto"
+							  RowSpacing="12">
+
+							<!-- Row 1: MAC address -->
+							<TextBox Grid.Row="0"
+									 Watermark="00:11:22:33:44:55"
+									 Text="{Binding MacAddressTempAuth}"/>
+
+							<!-- Row 2: Date/time picker on the left, quick buttons on the right -->
+							<Grid Grid.Row="1"
+								  ColumnDefinitions="*,Auto"
+								  ColumnSpacing="12">
+
+								<!-- Left side: expiration date and time -->
+								<Grid Grid.Column="0"
+									  ColumnDefinitions="*,*"
+									  ColumnSpacing="12">
+
+									<DatePicker Grid.Column="0"
+												SelectedDate="{Binding TempAuthDate}"/>
+
+									<TimePicker Grid.Column="1"
+												SelectedTime="{Binding TempAuthTime}"/>
+
+								</Grid>
+
+								<!-- Right side: quick expiration buttons -->
+								<Grid Grid.Column="1"
+									  ColumnDefinitions="Auto,Auto,Auto"
+									  ColumnSpacing="8">
+
+									<Button Grid.Column="0"
+											Content="10 minutes"
+											Command="{Binding SetTempAuthTenMinutesCommand}"/>
+
+									<Button Grid.Column="1"
+											Content="1 hour"
+											Command="{Binding SetTempAuthOneHourCommand}"/>
+
+									<Button Grid.Column="2"
+											Content="1 day"
+											Command="{Binding SetTempAuthOneDayCommand}"/>
+
+								</Grid>
+
+							</Grid>
+
+							<!-- Row 3: Generate button -->
+							<Button Grid.Row="2"
+									Classes="Primary"
+									Content="Generate TEMP AUTH"
+									Command="{Binding GenerateTempAuthCommand}"/>
+
+						</Grid>
 
 					</StackPanel>
 

@@ -29,7 +29,8 @@ public partial class GeneratorsViewModel : ViewModelBase
         nameof(SetResetTenMinutesCommand),
         nameof(SetResetOneHourCommand),
         nameof(SetResetOneDayCommand))]
-    private string? macAddress;
+
+    private string? macAddressReset;
 
 
     [ObservableProperty]
@@ -52,6 +53,22 @@ public partial class GeneratorsViewModel : ViewModelBase
     private const string CardParsExtension = ".CRD";
     private const string ChecksumExtension = ".BIN";
 
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(
+        nameof(GenerateTempAuthCommand),
+        nameof(SetTempAuthTenMinutesCommand),
+        nameof(SetTempAuthOneHourCommand),
+        nameof(SetTempAuthOneDayCommand))]
+    private string? macAddressTempAuth;
+
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(GenerateTempAuthCommand))]
+    private TimeSpan? tempAuthTime;
+
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(GenerateTempAuthCommand))]
+    private DateTimeOffset? tempAuthDate;
+
 
     public GeneratorsViewModel(AppSettingsService appSettingsService)
     {
@@ -71,6 +88,8 @@ public partial class GeneratorsViewModel : ViewModelBase
             now.Offset);
 
         ResetTime = now.TimeOfDay;
+        TempAuthDate = ResetDate;
+        TempAuthTime = ResetTime;
     }
 
     [RelayCommand(CanExecute = nameof(CanGenerateLogin))]
@@ -98,7 +117,7 @@ public partial class GeneratorsViewModel : ViewModelBase
     [RelayCommand(CanExecute = nameof(CanGenerateReset))]
     private void GenerateReset()
     {
-        if (!TryParseMacAddress(MacAddress, out byte[] mac))
+        if (!TryParseMacAddress(macAddressReset, out byte[] mac))
             return;
 
         if (!TryGetResetTimestamp(out long unixTimestamp))
@@ -130,7 +149,7 @@ public partial class GeneratorsViewModel : ViewModelBase
 
     private bool CanSetResetExpiration()
     {
-        return TryParseMacAddress(MacAddress, out _);
+        return TryParseMacAddress(macAddressReset, out _);
     }
 
     private void SetResetExpiration(TimeSpan duration)
@@ -220,7 +239,7 @@ public partial class GeneratorsViewModel : ViewModelBase
     {
         unixTimestamp = 0;
 
-        if (!TryParseMacAddress(MacAddress, out _))
+        if (!TryParseMacAddress(macAddressReset, out _))
             return false;
 
         if (ResetDate is null || ResetTime is null)
@@ -273,5 +292,85 @@ public partial class GeneratorsViewModel : ViewModelBase
         return HasExtension(ChecksumFile, ChecksumExtension);
     }
 
+    [RelayCommand(CanExecute = nameof(CanGenerateTempAuth))]
+    private void GenerateTempAuth()
+    {
+        if (!TryParseMacAddress(MacAddressTempAuth, out byte[] mac))
+            return;
+
+        if (!TryGetTempAuthTimestamp(out long unixTimestamp))
+            return;
+
+        _fileGeneratorService.GenerateTempAuthFile(
+            _controller,
+            mac,
+            unixTimestamp);
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
+    private void SetTempAuthTenMinutes()
+    {
+        SetTempAuthExpiration(TimeSpan.FromMinutes(10));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
+    private void SetTempAuthOneHour()
+    {
+        SetTempAuthExpiration(TimeSpan.FromHours(1));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
+    private void SetTempAuthOneDay()
+    {
+        SetTempAuthExpiration(TimeSpan.FromDays(1));
+    }
+
+    private bool CanSetTempAuthExpiration()
+    {
+        return TryParseMacAddress(MacAddressTempAuth, out _);
+    }
+
+    private void SetTempAuthExpiration(TimeSpan duration)
+    {
+        DateTimeOffset expiration = DateTimeOffset.Now.Add(duration);
+
+        TempAuthDate = expiration.Date;
+        TempAuthTime = expiration.TimeOfDay;
+    }
+
+    private bool TryGetTempAuthTimestamp(out long unixTimestamp)
+    {
+        unixTimestamp = 0;
+
+        if (!TryParseMacAddress(MacAddressTempAuth, out _))
+            return false;
+
+        if (TempAuthDate is null || TempAuthTime is null)
+            return false;
+
+        DateTime localDateTime = DateTime.SpecifyKind(
+            TempAuthDate.Value.Date + TempAuthTime.Value,
+            DateTimeKind.Unspecified);
+
+        TimeSpan localOffset =
+            TimeZoneInfo.Local.GetUtcOffset(localDateTime);
+
+        DateTimeOffset selectedLocalTime =
+            new DateTimeOffset(localDateTime, localOffset);
+
+        if (selectedLocalTime <= DateTimeOffset.Now)
+            return false;
+
+        unixTimestamp = selectedLocalTime
+            .ToUniversalTime()
+            .ToUnixTimeSeconds();
+
+        return true;
+    }
+
+    private bool CanGenerateTempAuth()
+    {
+        return TryGetTempAuthTimestamp(out _);
+    }
 
 }
