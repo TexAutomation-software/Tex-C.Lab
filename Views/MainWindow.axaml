@@ -6,7 +6,7 @@
     x:DataType="vm:MainViewModel"
     Width="1400"
     Height="900"
-    Title="Tex C.Lab"
+    Title="Tex Computer Srl - C.Lab"
     Background="#09111F">
 
 	<Design.DataContext>
@@ -45,7 +45,7 @@
                             Margin="12,0,0,0"
                             VerticalAlignment="Center">
 
-				<TextBlock Text="{Binding ApplicationVersion, StringFormat='Tex C Lab v. {0}'}"
+				<TextBlock Text="{Binding ApplicationVersion, StringFormat='Tex Computer Srl - C.Lab v. {0}'}"
 						FontSize="18"
 						FontWeight="Bold"
 						Foreground="White"/>

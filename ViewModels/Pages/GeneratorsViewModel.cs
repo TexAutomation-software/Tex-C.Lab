@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GZSoft.Tex.Controller;
 using GZSoft.Tex.Controller.Interface;
@@ -26,9 +26,11 @@ public partial class GeneratorsViewModel : ViewModelBase
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(
         nameof(GenerateResetCommand),
-        nameof(SetResetTenMinutesCommand),
         nameof(SetResetOneHourCommand),
-        nameof(SetResetOneDayCommand))]
+        nameof(SetResetTwelveHoursCommand),
+        nameof(SetResetOneDayCommand),
+        nameof(SetResetTwoDaysCommand),
+        nameof(SetResetOneWeekCommand))]
 
     private string? macAddressReset;
 
@@ -56,9 +58,11 @@ public partial class GeneratorsViewModel : ViewModelBase
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(
         nameof(GenerateTempAuthCommand),
-        nameof(SetTempAuthTenMinutesCommand),
         nameof(SetTempAuthOneHourCommand),
-        nameof(SetTempAuthOneDayCommand))]
+        nameof(SetTempAuthTwelveHoursCommand),
+        nameof(SetTempAuthOneDayCommand),
+        nameof(SetTempAuthTwoDaysCommand),
+        nameof(SetTempAuthOneWeekCommand))]
     private string? macAddressTempAuth;
 
     [ObservableProperty]
@@ -76,7 +80,7 @@ public partial class GeneratorsViewModel : ViewModelBase
         _fileGeneratorService = new FileGeneratorService(appSettingsService);
         _appSettingsService = appSettingsService;
 
-        var now = DateTimeOffset.Now;
+        var now = DateTimeOffset.UtcNow;
 
         ResetDate = new DateTimeOffset(
             now.Year,
@@ -130,21 +134,33 @@ public partial class GeneratorsViewModel : ViewModelBase
     }
 
     [RelayCommand(CanExecute = nameof(CanSetResetExpiration))]
-    private void SetResetTenMinutes()
-    {
-        SetResetExpiration(TimeSpan.FromMinutes(10));
-    }
-
-    [RelayCommand(CanExecute = nameof(CanSetResetExpiration))]
     private void SetResetOneHour()
     {
         SetResetExpiration(TimeSpan.FromHours(1));
     }
 
     [RelayCommand(CanExecute = nameof(CanSetResetExpiration))]
+    private void SetResetTwelveHours()
+    {
+        SetResetExpiration(TimeSpan.FromHours(12));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetResetExpiration))]
     private void SetResetOneDay()
     {
         SetResetExpiration(TimeSpan.FromDays(1));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetResetExpiration))]
+    private void SetResetTwoDays()
+    {
+        SetResetExpiration(TimeSpan.FromDays(2));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetResetExpiration))]
+    private void SetResetOneWeek()
+    {
+        SetResetExpiration(TimeSpan.FromDays(7));
     }
 
     private bool CanSetResetExpiration()
@@ -155,7 +171,7 @@ public partial class GeneratorsViewModel : ViewModelBase
     private void SetResetExpiration(TimeSpan duration)
     {
         DateTimeOffset expiration =
-            DateTimeOffset.Now.Add(duration);
+            DateTimeOffset.UtcNow.Add(duration);
 
         ResetDate = expiration.Date;
         ResetTime = expiration.TimeOfDay;
@@ -245,27 +261,18 @@ public partial class GeneratorsViewModel : ViewModelBase
         if (ResetDate is null || ResetTime is null)
             return false;
 
-        /*
-         * DatePicker and TimePicker represent the user's local wall-clock
-         * selection. Treat the combined value as local time, then convert
-         * it to UTC.
-         */
-        DateTime localDateTime = DateTime.SpecifyKind(
+        // The date and time fields are explicitly interpreted as UTC.
+        DateTime utcDateTime = DateTime.SpecifyKind(
             ResetDate.Value.Date + ResetTime.Value,
-            DateTimeKind.Unspecified);
+            DateTimeKind.Utc);
 
-        TimeSpan localOffset =
-            TimeZoneInfo.Local.GetUtcOffset(localDateTime);
+        DateTimeOffset selectedUtcTime =
+            new DateTimeOffset(utcDateTime, TimeSpan.Zero);
 
-        DateTimeOffset selectedLocalTime =
-            new DateTimeOffset(localDateTime, localOffset);
-
-        if (selectedLocalTime <= DateTimeOffset.Now)
+        if (selectedUtcTime <= DateTimeOffset.UtcNow)
             return false;
 
-        unixTimestamp = selectedLocalTime
-            .ToUniversalTime()
-            .ToUnixTimeSeconds();
+        unixTimestamp = selectedUtcTime.ToUnixTimeSeconds();
 
         return true;
     }
@@ -308,21 +315,33 @@ public partial class GeneratorsViewModel : ViewModelBase
     }
 
     [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
-    private void SetTempAuthTenMinutes()
-    {
-        SetTempAuthExpiration(TimeSpan.FromMinutes(10));
-    }
-
-    [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
     private void SetTempAuthOneHour()
     {
         SetTempAuthExpiration(TimeSpan.FromHours(1));
     }
 
     [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
+    private void SetTempAuthTwelveHours()
+    {
+        SetTempAuthExpiration(TimeSpan.FromHours(12));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
     private void SetTempAuthOneDay()
     {
         SetTempAuthExpiration(TimeSpan.FromDays(1));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
+    private void SetTempAuthTwoDays()
+    {
+        SetTempAuthExpiration(TimeSpan.FromDays(2));
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSetTempAuthExpiration))]
+    private void SetTempAuthOneWeek()
+    {
+        SetTempAuthExpiration(TimeSpan.FromDays(7));
     }
 
     private bool CanSetTempAuthExpiration()
@@ -332,7 +351,7 @@ public partial class GeneratorsViewModel : ViewModelBase
 
     private void SetTempAuthExpiration(TimeSpan duration)
     {
-        DateTimeOffset expiration = DateTimeOffset.Now.Add(duration);
+        DateTimeOffset expiration = DateTimeOffset.UtcNow.Add(duration);
 
         TempAuthDate = expiration.Date;
         TempAuthTime = expiration.TimeOfDay;
@@ -348,22 +367,18 @@ public partial class GeneratorsViewModel : ViewModelBase
         if (TempAuthDate is null || TempAuthTime is null)
             return false;
 
-        DateTime localDateTime = DateTime.SpecifyKind(
+        // The date and time fields are explicitly interpreted as UTC.
+        DateTime utcDateTime = DateTime.SpecifyKind(
             TempAuthDate.Value.Date + TempAuthTime.Value,
-            DateTimeKind.Unspecified);
+            DateTimeKind.Utc);
 
-        TimeSpan localOffset =
-            TimeZoneInfo.Local.GetUtcOffset(localDateTime);
+        DateTimeOffset selectedUtcTime =
+            new DateTimeOffset(utcDateTime, TimeSpan.Zero);
 
-        DateTimeOffset selectedLocalTime =
-            new DateTimeOffset(localDateTime, localOffset);
-
-        if (selectedLocalTime <= DateTimeOffset.Now)
+        if (selectedUtcTime <= DateTimeOffset.UtcNow)
             return false;
 
-        unixTimestamp = selectedLocalTime
-            .ToUniversalTime()
-            .ToUnixTimeSeconds();
+        unixTimestamp = selectedUtcTime.ToUnixTimeSeconds();
 
         return true;
     }

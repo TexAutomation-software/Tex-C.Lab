@@ -103,7 +103,7 @@
 						<TextBlock Classes="GeneratorSubtitle"
 								   Text="reset.enc"/>
 
-						<Grid RowDefinitions="Auto,Auto,Auto"
+						<Grid RowDefinitions="Auto,Auto,Auto,Auto"
 							  RowSpacing="12">
 
 							<!-- Row 1: MAC address -->
@@ -111,8 +111,13 @@
 									 Watermark="00:11:22:33:44:55"
 									 Text="{Binding MacAddressReset}"/>
 
-							<!-- Row 2: Date/time picker on the left, quick buttons on the right -->
-							<Grid Grid.Row="1"
+							<!-- Expiration values are entered and displayed in UTC. -->
+							<TextBlock Grid.Row="1"
+									   Text="Expiration date and time (UTC)"
+									   Classes="GeneratorSubtitle"/>
+
+							<!-- Date/time picker on the left, quick buttons on the right -->
+							<Grid Grid.Row="2"
 								  ColumnDefinitions="*,Auto"
 								  ColumnSpacing="12">
 
@@ -130,28 +135,25 @@
 								</Grid>
 
 								<!-- Right side: quick expiration buttons -->
-								<Grid Grid.Column="1"
-									  ColumnDefinitions="Auto,Auto,Auto"
-									  ColumnSpacing="8">
-
-									<Button Grid.Column="0"
-											Content="10 minutes"
-											Command="{Binding SetResetTenMinutesCommand}"/>
-
-									<Button Grid.Column="1"
-											Content="1 hour"
+								<StackPanel Grid.Column="1"
+											Orientation="Horizontal"
+											Spacing="6">
+									<Button Content="1 hour"
 											Command="{Binding SetResetOneHourCommand}"/>
-
-									<Button Grid.Column="2"
-											Content="1 day"
+									<Button Content="12 hours"
+											Command="{Binding SetResetTwelveHoursCommand}"/>
+									<Button Content="1 day"
 											Command="{Binding SetResetOneDayCommand}"/>
-
-								</Grid>
+									<Button Content="2 days"
+											Command="{Binding SetResetTwoDaysCommand}"/>
+									<Button Content="1 week"
+											Command="{Binding SetResetOneWeekCommand}"/>
+								</StackPanel>
 
 							</Grid>
 
-							<!-- Row 3: Generate button -->
-							<Button Grid.Row="2"
+							<!-- Generate button -->
+							<Button Grid.Row="3"
 									Classes="Primary"
 									Content="Generate RESET"
 									Command="{Binding GenerateResetCommand}"/>
@@ -242,7 +244,7 @@
 						<TextBlock Classes="GeneratorSubtitle"
 								   Text="tempauth.enc"/>
 
-						<Grid RowDefinitions="Auto,Auto,Auto"
+						<Grid RowDefinitions="Auto,Auto,Auto,Auto"
 							  RowSpacing="12">
 
 							<!-- Row 1: MAC address -->
@@ -250,8 +252,13 @@
 									 Watermark="00:11:22:33:44:55"
 									 Text="{Binding MacAddressTempAuth}"/>
 
-							<!-- Row 2: Date/time picker on the left, quick buttons on the right -->
-							<Grid Grid.Row="1"
+							<!-- Expiration values are entered and displayed in UTC. -->
+							<TextBlock Grid.Row="1"
+									   Text="Expiration date and time (UTC)"
+									   Classes="GeneratorSubtitle"/>
+
+							<!-- Date/time picker on the left, quick buttons on the right -->
+							<Grid Grid.Row="2"
 								  ColumnDefinitions="*,Auto"
 								  ColumnSpacing="12">
 
@@ -269,28 +276,25 @@
 								</Grid>
 
 								<!-- Right side: quick expiration buttons -->
-								<Grid Grid.Column="1"
-									  ColumnDefinitions="Auto,Auto,Auto"
-									  ColumnSpacing="8">
-
-									<Button Grid.Column="0"
-											Content="10 minutes"
-											Command="{Binding SetTempAuthTenMinutesCommand}"/>
-
-									<Button Grid.Column="1"
-											Content="1 hour"
+								<StackPanel Grid.Column="1"
+											Orientation="Horizontal"
+											Spacing="6">
+									<Button Content="1 hour"
 											Command="{Binding SetTempAuthOneHourCommand}"/>
-
-									<Button Grid.Column="2"
-											Content="1 day"
+									<Button Content="12 hours"
+											Command="{Binding SetTempAuthTwelveHoursCommand}"/>
+									<Button Content="1 day"
 											Command="{Binding SetTempAuthOneDayCommand}"/>
-
-								</Grid>
+									<Button Content="2 days"
+											Command="{Binding SetTempAuthTwoDaysCommand}"/>
+									<Button Content="1 week"
+											Command="{Binding SetTempAuthOneWeekCommand}"/>
+								</StackPanel>
 
 							</Grid>
 
-							<!-- Row 3: Generate button -->
-							<Button Grid.Row="2"
+							<!-- Generate button -->
+							<Button Grid.Row="3"
 									Classes="Primary"
 									Content="Generate TEMP AUTH"
 									Command="{Binding GenerateTempAuthCommand}"/>

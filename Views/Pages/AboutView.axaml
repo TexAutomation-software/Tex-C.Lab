@@ -9,11 +9,10 @@
 
         <StackPanel
             Margin="40"
-            HorizontalAlignment="Center"
             Width="620"
+            HorizontalAlignment="Center"
             Spacing="20">
 
-            <!-- Header -->
             <StackPanel
                 HorizontalAlignment="Center"
                 Spacing="6">
@@ -22,74 +21,71 @@
                     Text="About"
                     FontSize="28"
                     FontWeight="SemiBold"
-                    Foreground="White"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center" />
 
                 <TextBlock
-                    Text="Learn more about PCRA"
+                    Text="Learn more about Tex C. Lab"
                     Classes="GeneratorSubtitle"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center" />
 
             </StackPanel>
 
-            <!-- Main Card -->
             <Border
                 Classes="GeneratorCard"
                 Padding="35">
 
                 <StackPanel Spacing="22">
 
-                    <!-- Application Identity -->
                     <StackPanel
                         HorizontalAlignment="Center"
                         Spacing="12">
 
                         <Border
-                            Width="88"
-                            Height="88"
-                            CornerRadius="12"
-                            Background="#1AFFFFFF"
-                            HorizontalAlignment="Center">
+                            Width="250"
+                            Height="82"
+                            CornerRadius="14"
+                            HorizontalAlignment="Center"
+                            Padding="20">
 
                             <Image
-                                Source="/Assets/cra-logo.png"
-                                Width="72"
-                                Height="72"
+                                Source="/Assets/LogoTex.png"
                                 Stretch="Uniform"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center"/>
+                                VerticalAlignment="Center"
+                                MaxWidth="210"
+                                MaxHeight="52" />
+
                         </Border>
 
                         <StackPanel
                             HorizontalAlignment="Center"
-                            Spacing="4">
+                            Spacing="5">
 
                             <TextBlock
                                 Text="Tex C. Lab"
-                                FontSize="34"
+                                FontSize="30"
                                 FontWeight="Bold"
-                                Foreground="White"
-                                HorizontalAlignment="Center"/>
+                                HorizontalAlignment="Center" />
 
+                            <!--
                             <TextBlock
-                                Text="Encryption File Generation Utility"
+                                Text="TEX Controller Utility"
                                 Classes="GeneratorSubtitle"
-                                HorizontalAlignment="Center"/>
+                                HorizontalAlignment="Center" />
+                            -->
 
                         </StackPanel>
 
                     </StackPanel>
 
-                    <Separator/>
+                    <Separator />
 
-                    <!-- Application Information -->
                     <StackPanel Spacing="14">
 
                         <TextBlock
                             Text="Application Information"
                             FontSize="17"
-                            FontWeight="SemiBold"
-                            Foreground="White"/>
+                            FontWeight="SemiBold" />
 
                         <Grid
                             ColumnDefinitions="150,*"
@@ -99,83 +95,78 @@
                             <TextBlock
                                 Text="Version"
                                 FontWeight="SemiBold"
-                                Opacity="0.7"/>
+                                Opacity="0.7" />
 
                             <TextBlock
                                 Grid.Column="1"
                                 Text="{Binding Version}"
-                                HorizontalAlignment="Right"/>
-
+                                HorizontalAlignment="Right" />
 
                             <TextBlock
                                 Grid.Row="1"
                                 Text="Platform"
                                 FontWeight="SemiBold"
-                                Opacity="0.7"/>
+                                Opacity="0.7" />
 
                             <TextBlock
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Text="Windows"
-                                HorizontalAlignment="Right"/>
+                                Text="Avalonia UI"
+                                HorizontalAlignment="Right" />
 
                             <TextBlock
                                 Grid.Row="2"
                                 Text="Developer"
                                 FontWeight="SemiBold"
-                                Opacity="0.7"/>
+                                Opacity="0.7" />
 
                             <TextBlock
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Text="TEX"
-                                HorizontalAlignment="Right"/>
+                                Text="Tex Computer Srl"
+                                HorizontalAlignment="Right" />
 
                         </Grid>
 
                     </StackPanel>
 
-                    <Separator/>
+                    <Separator />
 
-                    <!-- Description -->
                     <StackPanel Spacing="8">
 
                         <TextBlock
-                            Text="Tex C. Lab"
+                            Text="Overview"
                             FontSize="17"
-                            FontWeight="SemiBold"
-                            Foreground="White"/>
+                            FontWeight="SemiBold" />
 
                         <TextBlock
-                            Text="Utility per la gestione dei file crittati dell'ecosistema Tex."
+                            Text="A desktop utility for generating encrypted files used in Tex controller configuration and authorization workflows."
                             TextWrapping="Wrap"
                             LineHeight="21"
-                            Opacity="0.75"/>
+                            Opacity="0.75" />
 
                     </StackPanel>
 
-                    <Separator/>
+                    <Separator />
 
-                    <!-- Documentation -->
                     <StackPanel Spacing="10">
 
                         <TextBlock
                             Text="Documentation"
                             FontSize="17"
-                            FontWeight="SemiBold"
-                            Foreground="White"/>
+                            FontWeight="SemiBold" />
 
                         <TextBlock
                             Text="View the latest application changes and releases."
                             TextWrapping="Wrap"
-                            Opacity="0.75"/>
+                            Opacity="0.75" />
 
                         <Button
                             Content="Open Changelog"
                             Command="{Binding OpenChangelogCommand}"
                             HorizontalAlignment="Left"
                             Padding="18,9"
-                            MinWidth="160"/>
+                            MinWidth="160" />
 
                     </StackPanel>
 
@@ -183,12 +174,11 @@
 
             </Border>
 
-            <!-- Footer -->
             <TextBlock
-                Text="© 2026 TEX. All rights reserved."
+                Text="© 2026 Tex Computer Srl All rights reserved."
                 Classes="GeneratorSubtitle"
                 HorizontalAlignment="Center"
-                Opacity="0.6"/>
+                Opacity="0.6" />
 
         </StackPanel>
 
