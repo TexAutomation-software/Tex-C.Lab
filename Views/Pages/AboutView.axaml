@@ -45,6 +45,7 @@
                             Height="82"
                             CornerRadius="14"
                             HorizontalAlignment="Center"
+                            Background="White"
                             Padding="20">
 
                             <Image
